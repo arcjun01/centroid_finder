@@ -1,0 +1,23 @@
+{
+  "name": "centroid_finder",
+  "version": "1.0.0",
+  "description": "AI is *NOT ALLOWED* for generating implementations of the classes.\r AI is allowed for helping you make test cases.",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arcjun01/centroid-finder.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/arcjun01/centroid-finder/issues"
+  },
+  "homepage": "https://github.com/arcjun01/centroid-finder#readme"
+}
