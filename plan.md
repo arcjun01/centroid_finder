@@ -1,4 +1,4 @@
-# Wave 1: Planning
+# Video Processing Planning
 
 ## Overall Goal
 The goal of this project is to extend the existing Centroid Finder so that it can process .mp4 videos and track the largest centroid frame by frame. The output will be a CSV file showing the time (in seconds) and the x, y coordinates of the largest centroid.
