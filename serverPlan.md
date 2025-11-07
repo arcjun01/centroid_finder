@@ -32,8 +32,8 @@ Output CSV → Results folder
 
 ### Environment Variables (.env)
 * `VIDEOS_DIR` — path to directory containing uploaded videos.
-* `INPUT_DIR` — path to store processed CSVs.
-* `OUTPUT_PATH` — path to the compiled `VideoProcessor.jar`.
+* `RESULTS_DIR` — path to store processed CSVs.
+* `JAR_PATH` — path to the compiled `VideoProcessor.jar`.
 
 ### Job Tracker
 * Keeps a JSON file or in-memory map of active and completed jobs:

@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: io.github.arcjun01.centroid_finder.FrameExtractorTest
+-------------------------------------------------------------------------------
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 0.016 s -- in io.github.arcjun01.centroid_finder.FrameExtractorTest
