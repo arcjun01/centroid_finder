@@ -1,6 +1,15 @@
 # Compiled class file
 *.class
 
+# Maven Build Artifacts - ADD THIS CRITICAL SECTION
+# Ignore ALL 'target' directories, including the one inside 'processor/'
+**/target/
+processor/target/maven-archiver/pom.properties
+processor/target/maven-status/
+processor/target/surefire-reports/
+createdFiles.lst
+inputFiles.lst
+
 # Log file
 *.log
 
@@ -25,4 +34,8 @@ hs_err_pid*
 replay_pid*
 
 
+# Temporary and Environment Files
 sampleVideo
+**/node_modules
+.DS_Store
+.env
