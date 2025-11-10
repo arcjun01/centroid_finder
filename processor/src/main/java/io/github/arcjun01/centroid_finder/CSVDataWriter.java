@@ -46,7 +46,8 @@ public class CSVDataWriter {
             System.out.println("File saved: " + outputPath);
             
         } catch (IOException e) {
-            System.err.println("Error saving file: " + e.getMessage());
+            System.err.println("Error saving file at: " + outputPath);
+            e.printStackTrace();
         }
     }
 }
