@@ -6,8 +6,14 @@
   "type": "module",
   "scripts": {
     "dev": "nodemon index.js",
-    "start": "node index.js"
+    "start": "node index.js",
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js"
   },
+ "jest": {
+  "testEnvironment": "node",
+  "extensionsToTreatAsEsm": [".jsx"],
+  "transform": {}
+},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/arcjun01/centroid-finder.git"

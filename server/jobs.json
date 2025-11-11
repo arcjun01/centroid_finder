@@ -1,0 +1,9 @@
+{
+  "test-id-1": {
+    "jobId": "test-id-1",
+    "inputPath": "salamander_clip.mp4",
+    "outputCsv": "path/to/output.csv",
+    "status": "submitted",
+    "created": "2025-11-11T05:14:05.629Z"
+  }
+}
