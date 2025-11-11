@@ -12,6 +12,10 @@ app.use(express.json());
 // Serve static video files
 app.use("/videos", express.static(process.env.VIDEOS_DIR));
 
+app.get("/", (req, res) => {
+  res.send("Welcome to the server");
+});
+
 // Routes
 app.use("/jobs", jobsRouter);
 app.use("/process", videosRouter);
