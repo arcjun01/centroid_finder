@@ -1,4 +1,4 @@
-import { fetchVideos, getThumbnail, getVideoById } from '../routes/videos.js';
+import { fetchVideos, getThumbnail, getVideoById } from '../utils/videos.js';
 describe('Video Management', () => {
   test('should fetch available videos', async () => {
     const videos = await fetchVideos();
