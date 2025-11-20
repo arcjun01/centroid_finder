@@ -2,22 +2,22 @@
 
 ## Refactoring Code 
 
-1. Standardize job storage by using `process.env.JOBS_FILE` to remove duplicate JSON files.
+1. Selected: Standardize job storage by using `process.env.JOBS_FILE` to remove duplicate JSON files. 
 2. Fix variable shadowing in `processor.js` by renaming the `process` variable.
 
 ## Adding Tests
 
-1. Add integration tests for POST `/process/start` and GET `/jobs/:jobId` using supertest.
+1. Selected: Add integration tests for POST `/process/start` and GET `/jobs/:jobId` using supertest.
 2. Mock `child_process.spawn` to test missing JAR behavior and argument validation.
 
 ## Improving Error Handling
 
-1. Add input validation in `videos.js` (sanitize `inputPath`, validate `targetColor`, ensure numeric threshold).
-2. Validate `process.env.JAR_PATH` before spawning and handle missing JAR gracefully.
+1. Selected: Add input validation in `videos.js` (sanitize `inputPath`, validate `targetColor`, ensure numeric threshold).
+2. Selected: Validate `process.env.JAR_PATH` before spawning and handle missing JAR gracefully.
 
 ## Writing Documentation 
 
-1. Create API.md describing env vars (`VIDEOS_DIR`, `RESULTS_DIR`, `JAR_PATH`, `JOBS_FILE`, `PORT`).
+1. Selected: Create API.md describing env vars (`VIDEOS_DIR`, `RESULTS_DIR`, `JAR_PATH`, `JOBS_FILE`, `PORT`).
 2. Add example request for POST `/process/start` and describe where results are stored.
 
 ## Improving Performance 
@@ -32,7 +32,7 @@
 
 ## Bug Fixes 
 
-1. Add missing `await` in GET `/jobs/:jobId` to fix 404 logic.
+1. Selected: Add missing `await` in GET `/jobs/:jobId` to fix 404 logic.
 2. Fix race conditions in job writing using temp-file + rename or a lightweight DB.
 
 ## Other
