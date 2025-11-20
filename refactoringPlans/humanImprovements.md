@@ -20,3 +20,4 @@
 - add notes for jobs.js and videos.js
 - remove uneccessary comments in 
 - fix comments in manageJob.js
+- update README.md
