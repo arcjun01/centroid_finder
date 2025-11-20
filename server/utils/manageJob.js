@@ -1,7 +1,11 @@
 // utils/manageJob.js
 import fs from "fs";
 
-const jobsFile = process.env.JOBS_FILE || "./jobs.json";
+if (!process.env.JOBS_FILE) {
+  throw new Error("JOBS_FILE is not set. Define it in your .env.");
+}
+
+const jobsFile = process.env.JOBS_FILE;
 
 function loadJobs() {
   if (!fs.existsSync(jobsFile)) return {};
@@ -12,9 +16,7 @@ function saveJobs(jobs) {
   fs.writeFileSync(jobsFile, JSON.stringify(jobs, null, 2));
 }
 
-/**
- * Creates a new job and saves it to jobs.json
- */
+// Creates a new job and saves it to jobs.json
 export function createJob(jobId, inputPath, outputCsv) {
   if (!jobId || !inputPath || !outputCsv) {
     throw new Error("Missing parameters");
@@ -35,9 +37,7 @@ export function createJob(jobId, inputPath, outputCsv) {
   return job; 
 }
 
-/**
- * Updates the status of a specific job
- */
+// Updates the status of a specific job
 export function updateJobStatus(jobId, status) {
   const jobs = loadJobs();
   if (jobs[jobId]) {
@@ -46,16 +46,13 @@ export function updateJobStatus(jobId, status) {
   }
 }
 
-/**
- * Returns all jobs
- */
+
+// Returns all jobs
 export function getJobs() {
   return loadJobs();
 }
 
-/**
- * Gets a job by its ID
- */
+// Gets a job by its ID
 export async function getJob(jobId) {
   if (!jobId) throw new Error("Invalid job ID");
 
