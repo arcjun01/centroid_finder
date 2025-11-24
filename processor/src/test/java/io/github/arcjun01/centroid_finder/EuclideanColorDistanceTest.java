@@ -1,4 +1,4 @@
-olppackage io.github.arcjun01.centroid_finder;
+package io.github.arcjun01.centroid_finder;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
