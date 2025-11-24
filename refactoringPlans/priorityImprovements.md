@@ -2,12 +2,12 @@
 
 ## Refactoring Code 
 
-1. Selected: Standardize job storage by using `process.env.JOBS_FILE` to remove duplicate JSON files. 
-2. Fix variable shadowing in `processor.js` by renaming the `process` variable.
+1. Done: Standardize job storage by using `process.env.JOBS_FILE` to remove duplicate JSON files. 
+2. Selected: Creating aditional folders for organizing and removing extra files.
 
 ## Adding Tests
 
-1. Selected: Add integration tests for POST `/process/start` and GET `/jobs/:jobId` using supertest.
+1. Done: Add integration tests for POST `/process/start` and GET `/jobs/:jobId` using supertest.
 2. Mock `child_process.spawn` to test missing JAR behavior and argument validation.
 
 ## Improving Error Handling
@@ -32,7 +32,7 @@
 
 ## Bug Fixes 
 
-1. Selected: Add missing `await` in GET `/jobs/:jobId` to fix 404 logic.
+1. Add missing `await` in GET `/jobs/:jobId` to fix 404 logic.
 2. Fix race conditions in job writing using temp-file + rename or a lightweight DB.
 
 ## Other
