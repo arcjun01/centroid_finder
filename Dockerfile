@@ -27,10 +27,10 @@ RUN apt-get update && \
 # Set working directory
 WORKDIR /usr/src/app
 
-#Set Volume Directories 
-# These environment variables tell Node code where to find I/O, matching the volumes the user mounts.
+# Set Volume Directories 
 ENV VIDEOS_DIR=/videos
 ENV RESULTS_DIR=/results
+ENV JOBS_FILE=/results/jobs.json
 
 # Create the directories that will be used for volumes
 RUN mkdir -p /videos /results
