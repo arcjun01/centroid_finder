@@ -1,16 +1,16 @@
-// Runs the JAR using Node's child_process
-
 import { spawn } from "child_process";
 import fs from "fs";
+import path from "path";
 
 export function runProcessor(inputPath, outputCsv, targetColor, threshold) {
   const jarPath = process.env.JAR_PATH;
+  if (!jarPath) throw new Error("JAR_PATH environment variable not set");
 
   // Create output directory if needed
-  const outputDir = outputCsv.split("/").slice(0, -1).join("/");
+  const outputDir = path.dirname(outputCsv);
   if (!fs.existsSync(outputDir)) fs.mkdirSync(outputDir, { recursive: true });
 
-  const process = spawn("java", [
+  const child = spawn("java", [
     "-jar",
     jarPath,
     inputPath,
@@ -22,7 +22,7 @@ export function runProcessor(inputPath, outputCsv, targetColor, threshold) {
     stdio: "ignore",
   });
 
-// allows it to run after Node exits
-  process.unref();
-  return process.pid;
+  // Allows it to run after Node exits
+  child.unref();
+  return child.pid;
 }

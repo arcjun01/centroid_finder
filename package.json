@@ -1,0 +1,19 @@
+{
+  "name": "centroid-finder",
+  "version": "1.0.0",
+  "description": "## *DO THIS FIRST* Wave 0: AI Rules  AI is *NOT ALLOWED* for generating implementations of the classes. AI is allowed for helping you make test cases.",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jest": "^30.2.0",
+    "supertest": "^7.1.4"
+  }
+}

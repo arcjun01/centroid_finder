@@ -1,7 +1,9 @@
 import express from "express";
 import { v4 as uuidv4 } from "uuid";
 import { runProcessor } from "../utils/processor.js";
-import { createJob, updateJobStatus } from "../utils/manageJob.js";
+import { createJob } from "../utils/manageJob.js";
+import fs from "fs";
+import path from "path";
 
 const router = express.Router();
 
@@ -12,14 +14,26 @@ router.post("/start", (req, res) => {
     return res.status(400).json({ error: "Missing parameters" });
   }
 
-  const jobId = uuidv4();
-  const outputCsv = `${process.env.RESULTS_DIR}/${jobId}.csv`;
+  try {
+    const jobId = uuidv4();
+    // Ensure RESULTS_DIR exists
+    const outputDir = process.env.RESULTS_DIR || path.join(process.cwd(), "results");
+    if (!fs.existsSync(outputDir)) fs.mkdirSync(outputDir, { recursive: true });
 
-  createJob(jobId, inputPath, outputCsv);
+    const outputCsv = path.join(outputDir, `${jobId}.csv`);
 
-  runProcessor(inputPath, outputCsv, targetColor, threshold);
+    // Create job
+    createJob(jobId, inputPath, outputCsv);
 
-  res.status(202).json({ message: "Job started", jobId });
+    // Start processor asynchronously
+    runProcessor(inputPath, outputCsv, targetColor, threshold);
+
+    // Send JSON response
+    return res.status(202).json({ message: "Job started", jobId });
+  } catch (err) {
+    console.error("Error starting job:", err);
+    return res.status(500).json({ error: "Internal server error" });
+  }
 });
 
 export default router;

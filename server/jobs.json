@@ -4,6 +4,94 @@
     "inputPath": "salamander_clip.mp4",
     "outputCsv": "path/to/output.csv",
     "status": "submitted",
-    "created": "2025-11-12T05:01:40.427Z"
+    "progress": 0,
+    "created": "2025-11-22T05:16:41.138Z"
+  },
+  "bba46feb-4483-4ed7-83f7-86d4c6e0ed9d": {
+    "jobId": "bba46feb-4483-4ed7-83f7-86d4c6e0ed9d",
+    "inputPath": "dummy_video.mp4",
+    "outputCsv": "../processor/sampleOutput/bba46feb-4483-4ed7-83f7-86d4c6e0ed9d.csv",
+    "status": "submitted",
+    "created": "2025-11-22T02:57:58.791Z"
+  },
+  "b9b6d116-f420-4dbd-970c-7445262c941e": {
+    "jobId": "b9b6d116-f420-4dbd-970c-7445262c941e",
+    "inputPath": "dummy_video.mp4",
+    "outputCsv": "../processor/sampleOutput/b9b6d116-f420-4dbd-970c-7445262c941e.csv",
+    "status": "submitted",
+    "created": "2025-11-22T03:05:13.130Z"
+  },
+  "4664624c-2aa8-4a7a-bc5c-cd1a62ec11d9": {
+    "jobId": "4664624c-2aa8-4a7a-bc5c-cd1a62ec11d9",
+    "inputPath": "dummy_video.mp4",
+    "outputCsv": "../processor/sampleOutput/4664624c-2aa8-4a7a-bc5c-cd1a62ec11d9.csv",
+    "status": "submitted",
+    "created": "2025-11-22T03:07:54.222Z"
+  },
+  "29c41bc5-70fb-4fc4-9905-c26d310d2e89": {
+    "jobId": "29c41bc5-70fb-4fc4-9905-c26d310d2e89",
+    "inputPath": "dummy_video.mp4",
+    "outputCsv": "../processor/sampleOutput/29c41bc5-70fb-4fc4-9905-c26d310d2e89.csv",
+    "status": "submitted",
+    "created": "2025-11-22T04:42:11.643Z"
+  },
+  "4c680ec3-47af-4eb5-adfe-af7bc0a44fd2": {
+    "jobId": "4c680ec3-47af-4eb5-adfe-af7bc0a44fd2",
+    "inputPath": "dummy_video.mp4",
+    "outputCsv": "../processor/sampleOutput/4c680ec3-47af-4eb5-adfe-af7bc0a44fd2.csv",
+    "status": "submitted",
+    "created": "2025-11-22T04:51:15.773Z"
+  },
+  "17012e24-63f4-41e1-9784-5f07532a6948": {
+    "jobId": "17012e24-63f4-41e1-9784-5f07532a6948",
+    "inputPath": "dummy_video.mp4",
+    "outputCsv": "../processor/sampleOutput/17012e24-63f4-41e1-9784-5f07532a6948.csv",
+    "status": "submitted",
+    "created": "2025-11-22T04:58:41.782Z"
+  },
+  "719d355e-9778-4ecd-b2cb-e5bf5d2b7c24": {
+    "jobId": "719d355e-9778-4ecd-b2cb-e5bf5d2b7c24",
+    "inputPath": "dummy_video.mp4",
+    "outputCsv": "../processor/sampleOutput/719d355e-9778-4ecd-b2cb-e5bf5d2b7c24.csv",
+    "status": "submitted",
+    "created": "2025-11-22T05:02:02.532Z"
+  },
+  "1e91e498-c3cf-4824-b3f7-1d222c68e245": {
+    "jobId": "1e91e498-c3cf-4824-b3f7-1d222c68e245",
+    "inputPath": "dummy_video.mp4",
+    "outputCsv": "..\\processor\\sampleOutput\\1e91e498-c3cf-4824-b3f7-1d222c68e245.csv",
+    "status": "submitted",
+    "created": "2025-11-22T05:03:26.866Z"
+  },
+  "13d37343-c807-4b2a-b660-f587b5d6f87b": {
+    "jobId": "13d37343-c807-4b2a-b660-f587b5d6f87b",
+    "inputPath": "dummy_video.mp4",
+    "outputCsv": "..\\processor\\sampleOutput\\13d37343-c807-4b2a-b660-f587b5d6f87b.csv",
+    "status": "submitted",
+    "created": "2025-11-22T05:05:10.302Z"
+  },
+  "2592dc4a-331e-46f6-bd9d-b394b6781bca": {
+    "jobId": "2592dc4a-331e-46f6-bd9d-b394b6781bca",
+    "inputPath": "dummy_video.mp4",
+    "outputCsv": "..\\processor\\sampleOutput\\2592dc4a-331e-46f6-bd9d-b394b6781bca.csv",
+    "status": "submitted",
+    "progress": 0,
+    "created": "2025-11-22T05:08:03.648Z"
+  },
+  "cf4d33be-456c-4b5b-bc1c-83dd34b09aa9": {
+    "jobId": "cf4d33be-456c-4b5b-bc1c-83dd34b09aa9",
+    "inputPath": "dummy_video.mp4",
+    "outputCsv": "..\\processor\\sampleOutput\\cf4d33be-456c-4b5b-bc1c-83dd34b09aa9.csv",
+    "status": "submitted",
+    "progress": 0,
+    "created": "2025-11-22T05:10:33.104Z"
+  },
+  "1a9e62d6-1c48-48d7-82b6-5a9197521321": {
+    "jobId": "1a9e62d6-1c48-48d7-82b6-5a9197521321",
+    "inputPath": "dummy_video.mp4",
+    "outputCsv": "..\\processor\\sampleOutput\\1a9e62d6-1c48-48d7-82b6-5a9197521321.csv",
+    "status": "submitted",
+    "progress": 0,
+    "created": "2025-11-22T05:16:41.522Z"
   }
 }

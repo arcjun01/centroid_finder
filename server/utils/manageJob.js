@@ -27,6 +27,7 @@ export function createJob(jobId, inputPath, outputCsv) {
     inputPath,
     outputCsv,
     status: "submitted", 
+    progress: 0,
     created: new Date().toISOString(),
   };
 
@@ -64,7 +65,8 @@ export async function getJob(jobId) {
 
   if (!job) {
     // Return a placeholder job so tests pass
-    return { jobId, status: "submitted" };
+    //return { jobId, status: "submitted" };
+    return null;
   }
 
   return job;
