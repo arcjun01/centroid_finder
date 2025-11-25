@@ -46,11 +46,11 @@ Extracts the first frame of the video and returns it as a JPEG.
 - Type: string
 - Description: Name of the video file (e.g. demo.mov)
 
-**Response: 200 OK**
+- **Response: 200 OK**
 - Binary JPEG image
 - `Content-Type: image/jpeg`
 
-  **Response:5 00 Internal Server Error**
+- **Response:5 00 Internal Server Error**
     ```json
     { "error": "Error generating thumbnail" }
     ```
@@ -104,7 +104,7 @@ Returns current status of the job stored in JOBS_FILE.
     }
     ```
 
-  **Response: 200 OK — done**
+- **Response: 200 OK — done**
     ```json
     {
     "status": "done",
@@ -112,7 +112,7 @@ Returns current status of the job stored in JOBS_FILE.
     }
     ```
 
-  **Response: 200 OK — error**
+- **Response: 200 OK — error**
     ```json
     {
     "status": "error",
@@ -120,12 +120,12 @@ Returns current status of the job stored in JOBS_FILE.
     }
     ```
 
-  **Response: 404 Not Found**
+- **Response: 404 Not Found**
     ```json
     { "error": "Job ID not found" }
     ```
 
-  **Response: 500 Internal Server Error**
+- **Response: 500 Internal Server Error**
     ```json
     { "error": "Error fetching job status" }
     ```
