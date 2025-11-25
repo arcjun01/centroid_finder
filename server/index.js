@@ -1,9 +1,7 @@
 import 'dotenv/config';
-
 import express from "express";
 import jobsRouter from "./routes/jobs.js";
 import videosRouter from "./routes/videos.js";
-
 
 const app = express();
 app.use(express.json());
