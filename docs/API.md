@@ -17,15 +17,17 @@ These values configure where the server reads/writes data and how it runs inside
 | **PORT** | Port the Express server listens on. Defaults to 3000. You can override this when running in Docker. <br>Example: `3000` |
 ---
 
-## API Endpoints
+# API Endpoints
 
-### List Available Videos
-### GET /api/videos
+## List Available Videos
+**GET** `/api/videos`
 
-Returns all videos located in VIDEOS_DIR.
+Returns all videos located in `VIDEOS_DIR`.
 
-### Response: 200 OK
-["intro.mp4", "demo.mov"]
+### Responses
+- **200 OK**
+  ```json
+  ["intro.mp4", "demo.mov"]
 
 Response: 500 Internal Server Error
 { "error": "Error reading video directory" }
