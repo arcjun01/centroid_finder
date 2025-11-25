@@ -15,21 +15,20 @@ These values configure where the server reads/writes data and how it runs inside
 | **JOBS_FILE** | Path to the JSON file used to persist job status. The server reads/writes job objects here to avoid duplicates. <br>Example: `/results/jobs.json` |
 | **JAR_PATH** | Full path to the Java processing JAR used to analyze videos. <br>Example: `/usr/src/app/processor/centroid-finder-1.0-SNAPSHOT-jar-with-dependencies.jar` |
 | **PORT** | Port the Express server listens on. Defaults to 3000. You can override this when running in Docker. <br>Example: `3000` |
----
 
-# API Endpoints
+## API Endpoints
 
-## List Available Videos
+### List Available Videos
 **GET** `/api/videos`
 
 Returns all videos located in `VIDEOS_DIR`.
 
 ### Responses
 - **200 OK**
-  ```json
-  ["intro.mp4", "demo.mov"]
+  `["intro.mp4", "demo.mov"]`
 
-Response: 500 Internal Server Error
+- **500 Internal Server Error**
+```json
 { "error": "Error reading video directory" }
 
 ### Generate Thumbnail
