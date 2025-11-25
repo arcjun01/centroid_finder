@@ -5,17 +5,6 @@ import videosRouter from "./routes/videos.js";
 
 
 dotenv.config();
-
-// env variable validation
-function ensureEnv(name) {
-  if (!process.env[name]) {
-    console.error(`Missing required environment variable: ${name}`);
-    process.exit(1);
-  }
-}
-
-["VIDEOS_DIR", "RESULTS_DIR", "JAR_PATH", "JOBS_FILE"].forEach(ensureEnv);
-
 const app = express();
 
 app.use(express.json());
