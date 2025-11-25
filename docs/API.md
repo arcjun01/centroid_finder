@@ -42,9 +42,10 @@ Returns all videos located in `VIDEOS_DIR`.
 Extracts the first frame of the video and returns it as a JPEG.
 
 ### Path Parameters
-- Name: filename	
-- Type: string
-- Description: Name of the video file (e.g. demo.mov)
+| Name       | Type   | Description                              |
+| ---------- | ------ | ---------------------------------------- |
+| `filename` | string | Name of the video file (e.g. `demo.mov`) |
+
 
 - **Response: 200 OK**
 - Binary JPEG image
@@ -80,7 +81,9 @@ Starts an asynchronous processing job and returns a job ID.
     }
     ```
 - **Response: 400 Bad Request**
-{ "error": "Missing targetColor or threshold query parameter." }
+    ```json
+    { "error": "Missing targetColor or threshold query parameter." }
+    ```
 
 - **Response: 500 Internal Server Error**
     ```json
