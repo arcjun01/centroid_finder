@@ -19,6 +19,7 @@ These values configure where the server reads/writes data and how it runs inside
 # API Endpoints
 
 ## List Available Videos
+
 **GET** `/api/videos`
 
 Returns all videos located in `VIDEOS_DIR`.
@@ -34,23 +35,22 @@ Returns all videos located in `VIDEOS_DIR`.
     { "error": "Error reading video directory" }
     ```
 
+
 ## Generate Thumbnail
 **GET** `/thumbnail/{filename}`
 
 Extracts the first frame of the video and returns it as a JPEG.
 
-## Path Parameters
+### Path Parameters
 - Name: filename	
 - Type: string
 - Description: Name of the video file (e.g. demo.mov)
 
-### Responses:
-- **200 OK**
-
+**Response: 200 OK**
 - Binary JPEG image
 - `Content-Type: image/jpeg`
 
-- **500 Internal Server Error**
+  **Response:5 00 Internal Server Error**
     ```json
     { "error": "Error generating thumbnail" }
     ```
@@ -97,14 +97,14 @@ Returns current status of the job stored in JOBS_FILE.
 | ------- | ------ | ------------------------------------ |
 | `jobId` | string | Job ID returned from POST `/process` |
 
-- **Response: 200 OK — processing**
+-  **Response: 200 OK — processing**
     ```json
     {
     "status": "processing"
     }
     ```
 
-- **Response: 200 OK — done**
+  **Response: 200 OK — done**
     ```json
     {
     "status": "done",
@@ -112,7 +112,7 @@ Returns current status of the job stored in JOBS_FILE.
     }
     ```
 
-- **Response: 200 OK — error**
+  **Response: 200 OK — error**
     ```json
     {
     "status": "error",
@@ -120,12 +120,12 @@ Returns current status of the job stored in JOBS_FILE.
     }
     ```
 
-- **Response: 404 Not Found**
+  **Response: 404 Not Found**
     ```json
     { "error": "Job ID not found" }
     ```
 
-- **Response: 500 Internal Server Error**
+  **Response: 500 Internal Server Error**
     ```json
     { "error": "Error fetching job status" }
     ```
