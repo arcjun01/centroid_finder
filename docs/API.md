@@ -1,9 +1,8 @@
 # Salamander Processing API
 
-## This API powers video discovery, thumbnail generation, and asynchronous color-based salamander centroid detection.
+This API powers video discovery, thumbnail generation, and asynchronous color-based salamander centroid detection.
 
 All file paths depend on the environment variables described at the end of this document.
----
 
 ## Environment Variables
 
