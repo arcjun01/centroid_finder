@@ -16,37 +16,44 @@ These values configure where the server reads/writes data and how it runs inside
 | **JAR_PATH** | Full path to the Java processing JAR used to analyze videos. <br>Example: `/usr/src/app/processor/centroid-finder-1.0-SNAPSHOT-jar-with-dependencies.jar` |
 | **PORT** | Port the Express server listens on. Defaults to 3000. You can override this when running in Docker. <br>Example: `3000` |
 
-## API Endpoints
+# API Endpoints
 
-### List Available Videos
+## List Available Videos
+**GET** `/api/videos`
 
-### Responses
+Returns all videos located in `VIDEOS_DIR`.
+
+### Responses:
 - **200 OK**
-  ```json
-  ["intro.mp4", "demo.mov"]
-  ```
+    ```json
+    ["intro.mp4", "demo.mov"]
+    ```
 
-**500 Internal Server Error**
-`{ "error": "Error reading video directory" }`
+- **500 Internal Server Error**
+    ```json
+    { "error": "Error reading video directory" }
+    ```
 
-### Generate Thumbnail
-### GET /thumbnail/{filename}
+## Generate Thumbnail
+**GET** `/thumbnail/{filename}`
 
 Extracts the first frame of the video and returns it as a JPEG.
 
-### Path Parameters
-Name: filename	
-Type: string
-Description: Name of the video file (e.g. demo.mov)
+## Path Parameters
+- Name: filename	
+- Type: string
+- Description: Name of the video file (e.g. demo.mov)
 
-### Response: 200 OK
+### Responses:
+- **200 OK**
 
 - Binary JPEG image
+- `Content-Type: image/jpeg`
 
-- Content-Type: image/jpeg
-
-### Response: 500 Internal Server Error
-{ "error": "Error generating thumbnail" }
+- **500 Internal Server Error**
+    ```json
+    { "error": "Error generating thumbnail" }
+    ```
 
 ## Start Video Processing Job
 ### POST /process/{filename}
