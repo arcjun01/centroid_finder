@@ -1,19 +1,40 @@
-// utils/manageJob.js
 import fs from "fs";
+import path from "path";
 
-if (!process.env.JOBS_FILE) {
+// current working directory
+const jobsFile = process.env.JOBS_FILE
+  ? path.resolve(process.cwd(), process.env.JOBS_FILE)
+  : null;
+
+if (!jobsFile) {
   throw new Error("JOBS_FILE is not set. Define it in your .env.");
 }
 
-const jobsFile = process.env.JOBS_FILE;
-
-function loadJobs() {
-  if (!fs.existsSync(jobsFile)) return {};
-  return JSON.parse(fs.readFileSync(jobsFile));
+// Ensure the directory for the jobs file exists
+const jobsDir = path.dirname(jobsFile);
+if (!fs.existsSync(jobsDir)) {
+  fs.mkdirSync(jobsDir, { recursive: true });
 }
 
+// Ensure the jobs file exists
+if (!fs.existsSync(jobsFile)) {
+  fs.writeFileSync(jobsFile, "{}", "utf-8");
+}
+
+// Helper to load jobs from file
+function loadJobs() {
+  try {
+    const data = fs.readFileSync(jobsFile, "utf-8");
+    return JSON.parse(data || "{}");
+  } catch (err) {
+    console.error("Error reading jobs file:", err);
+    return {};
+  }
+}
+
+// Helper to save jobs to file
 function saveJobs(jobs) {
-  fs.writeFileSync(jobsFile, JSON.stringify(jobs, null, 2));
+  fs.writeFileSync(jobsFile, JSON.stringify(jobs, null, 2), "utf-8");
 }
 
 // Creates a new job and saves it to jobs.json
@@ -28,14 +49,14 @@ export function createJob(jobId, inputPath, outputCsv) {
     jobId,
     inputPath,
     outputCsv,
-    status: "submitted", 
+    status: "submitted",
     progress: 0,
     created: new Date().toISOString(),
   };
 
   jobs[jobId] = job;
   saveJobs(jobs);
-  return job; 
+  return job;
 }
 
 // Updates the status of a specific job
@@ -47,7 +68,6 @@ export function updateJobStatus(jobId, status) {
   }
 }
 
-
 // Returns all jobs
 export function getJobs() {
   return loadJobs();
@@ -58,13 +78,7 @@ export async function getJob(jobId) {
   if (!jobId) throw new Error("Invalid job ID");
 
   const jobs = loadJobs();
-  const job = jobs[jobId];
-
-  if (!job) {
-    // Return a placeholder job so tests pass
-    //return { jobId, status: "submitted" };
-    return null;
-  }
+  const job = jobs[jobId] || null;
 
   return job;
 }
