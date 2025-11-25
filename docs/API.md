@@ -24,12 +24,11 @@ These values configure where the server reads/writes data and how it runs inside
 Returns all videos located in `VIDEOS_DIR`.
 
 ### Responses
-- **200 OK**
-  `["intro.mp4", "demo.mov"]`
+**200 OK**
+`["intro.mp4", "demo.mov"]`
 
-- **500 Internal Server Error**
-```json
-{ "error": "Error reading video directory" }
+**500 Internal Server Error**
+`{ "error": "Error reading video directory" }`
 
 ### Generate Thumbnail
 ### GET /thumbnail/{filename}
