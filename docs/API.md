@@ -19,12 +19,15 @@ These values configure where the server reads/writes data and how it runs inside
 ## API Endpoints
 
 ### List Available Videos
-**GET** `/api/videos`
-
+**GET** 
+    ```json
+    /api/videos`
+    ``` 
 Returns all videos located in `VIDEOS_DIR`.
 
 ### Responses
 **200 OK**
+
 `["intro.mp4", "demo.mov"]`
 
 **500 Internal Server Error**
