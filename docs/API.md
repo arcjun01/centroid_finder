@@ -56,53 +56,76 @@ Extracts the first frame of the video and returns it as a JPEG.
     ```
 
 ## Start Video Processing Job
-### POST /process/{filename}
+**POST** `/process/{filename}`
 
-Query params: ?targetColor=<hex>&threshold=<int>
+Query params: `?targetColor=<hex>&threshold=<int>`
 
 Starts an asynchronous processing job and returns a job ID.
 
 ## Path Parameters
-Name: filename
-Type: string
-Description: Video file 
-{
-  "jobId": "123e4567-e89b-12d3-a456-426614174000"
-}
+| Name       | Type   | Description                       |
+| ---------- | ------ | --------------------------------- |
+| `filename` | string | Video file name, e.g. `intro.mp4` |
 
-Response: 400 Bad Request
+## Query Parameters
+| Name          | Type    | Description                     |
+| ------------- | ------- | ------------------------------- |
+| `targetColor` | string  | Hex color code (e.g. `ff0000`)  |
+| `threshold`   | integer | Matching threshold (e.g. `120`) |
+
+- **Response: 202 Accepted**
+    ```json
+    {
+    "jobId": "123e4567-e89b-12d3-a456-426614174000"
+    }
+    ```
+- **Response: 400 Bad Request**
 { "error": "Missing targetColor or threshold query parameter." }
 
-Response: 500 Internal Server Error
-{ "error": "Error starting job" }
+- **Response: 500 Internal Server Error**
+    ```json
+    { "error": "Error starting job" }
+    ```
 
-Check Processing Job Status
-GET /process/{jobId}/status
+## Check Processing Job Status
+**GET** `/process/{jobId}/status`
 
 Returns current status of the job stored in JOBS_FILE.
 
-Path Parameters
-Name	Type	Description
-jobId	string	Job ID returned from POST /process
-Response: 200 OK — processing
-{
-  "status": "processing"
-}
+### Path Parameters
+| Name    | Type   | Description                          |
+| ------- | ------ | ------------------------------------ |
+| `jobId` | string | Job ID returned from POST `/process` |
 
-Response: 200 OK — done
-{
-  "status": "done",
-  "result": "/results/intro.mp4.csv"
-}
+- **Response: 200 OK — processing**
+    ```json
+    {
+    "status": "processing"
+    }
+    ```
 
-Response: 200 OK — error
-{
-  "status": "error",
-  "error": "Error processing video: Unexpected ffmpeg error"
-}
+- **Response: 200 OK — done**
+    ```json
+    {
+    "status": "done",
+    "result": "/results/intro.mp4.csv"
+    }
+    ```
 
-Response: 404 Not Found
-{ "error": "Job ID not found" }
+- **Response: 200 OK — error**
+    ```json
+    {
+    "status": "error",
+    "error": "Error processing video: Unexpected ffmpeg error"
+    }
+    ```
 
-Response: 500 Internal Server Error
-{ "error": "Error fetching job status" }
+- **Response: 404 Not Found**
+    ```json
+    { "error": "Job ID not found" }
+    ```
+
+- **Response: 500 Internal Server Error**
+    ```json
+    { "error": "Error fetching job status" }
+    ```
