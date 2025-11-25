@@ -3,7 +3,7 @@
 ## Refactoring Code 
 
 1. Done: Standardize job storage by using `process.env.JOBS_FILE` to remove duplicate JSON files. 
-2. Selected: Creating aditional folders for organizing and removing extra files.
+2. Done: Creating aditional folders for organizing and removing extra files.
 
 ## Adding Tests
 
