@@ -1,46 +1,32 @@
+import 'dotenv/config';
 import express from "express";
-import path from "path";
-import { fileURLToPath } from "url";
+import jobsRouter from "./routes/jobs.js";
+import videosRouter from "./routes/videos.js"; // This includes the new /process/upload
 import cors from "cors";
-import fs from "fs";
 
 const app = express();
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-// --- PATHS ---
-const videosPath = path.resolve(__dirname, "../sampleInput");
-const publicPath = path.resolve(__dirname, "public");
-
-console.log("Does public exist?", fs.existsSync(publicPath));
-console.log("Does videos exist?", fs.existsSync(videosPath));
-console.log("Files in public:", fs.existsSync(publicPath) ? fs.readdirSync(publicPath) : "No public folder");
-console.log("Files in videos:", fs.existsSync(videosPath) ? fs.readdirSync(videosPath) : "No videos folder");
-
-// --- LOG PATHS ---
-console.log("VIDEOS_DIR:", videosPath);
-console.log("PUBLIC_DIR:", publicPath);
-
-// --- VERIFY FOLDERS ---
-if (fs.existsSync(videosPath)) {
-  console.log("VIDEOS_DIR exists. Files:", fs.readdirSync(videosPath));
-} else {
-  console.log("VIDEOS_DIR does NOT exist");
-}
-
-// --- MIDDLEWARE ---
-app.use(cors({ origin: "http://localhost:5173" }));
+app.use(cors({
+    //frontend server
+    origin: "http://localhost:5173" 
+}));
 app.use(express.json());
 
-// --- STATIC FILE SERVING ---
-app.use("/videos", express.static(videosPath));      // for video files
-app.use(express.static(publicPath));                // for HTML files
+// Static videos
+app.use("/videos", express.static(process.env.VIDEOS_DIR));
 
-// --- FALLBACK ROUTE ---
 app.get("/", (req, res) => {
-  res.sendFile(path.join(publicPath, "test.html")); // serve HTML explicitly
+    res.send("Welcome to the server");
 });
 
-// --- START SERVER ---
-const PORT = 3000;
-app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));
+app.use("/jobs", jobsRouter);
+app.use("/process", videosRouter); // The /process/start and /process/upload routes are here
+
+const PORT = process.env.PORT || 3000;
+
+if (process.env.NODE_ENV !== "test") {
+    app.listen(PORT, () => {
+        console.log(`Server running on http://localhost:${PORT}`);
+    });
+}
+
+export { app };
