@@ -93,5 +93,133 @@
     "status": "submitted",
     "progress": 0,
     "created": "2025-11-22T05:16:41.522Z"
+  },
+  "64a8a6bb-c7d3-49fc-829a-949b564aa0cf": {
+    "jobId": "64a8a6bb-c7d3-49fc-829a-949b564aa0cf",
+    "inputPath": "/Users/junoarciaga/Desktop/bas/sdev334/centroid-finder/server/public/videos/salamander.mp4",
+    "outputCsv": "public/results/64a8a6bb-c7d3-49fc-829a-949b564aa0cf.csv",
+    "status": "submitted",
+    "progress": 0,
+    "created": "2025-12-04T06:40:00.163Z"
+  },
+  "b6fcd1dd-cd74-4034-875b-c8e72a37b6a3": {
+    "jobId": "b6fcd1dd-cd74-4034-875b-c8e72a37b6a3",
+    "inputPath": "/Users/junoarciaga/Desktop/bas/sdev334/centroid-finder/server/public/videos/salamander.mp4",
+    "outputCsv": "public/results/b6fcd1dd-cd74-4034-875b-c8e72a37b6a3.csv",
+    "status": "submitted",
+    "progress": 0,
+    "created": "2025-12-04T06:40:00.191Z"
+  },
+  "70d6e71b-ded6-4f4b-9ab2-4350a72da214": {
+    "jobId": "70d6e71b-ded6-4f4b-9ab2-4350a72da214",
+    "inputPath": "/Users/junoarciaga/Desktop/bas/sdev334/centroid-finder/server/public/videos/salamander.mp4",
+    "outputCsv": "public/results/70d6e71b-ded6-4f4b-9ab2-4350a72da214.csv",
+    "status": "submitted",
+    "progress": 0,
+    "created": "2025-12-04T06:40:00.412Z"
+  },
+  "4c42ae05-bccf-41aa-a4b4-6a85c624bbf1": {
+    "jobId": "4c42ae05-bccf-41aa-a4b4-6a85c624bbf1",
+    "inputPath": "/Users/junoarciaga/Desktop/bas/sdev334/centroid-finder/server/public/videos/salamander.mp4",
+    "outputCsv": "public/results/4c42ae05-bccf-41aa-a4b4-6a85c624bbf1.csv",
+    "status": "submitted",
+    "progress": 0,
+    "created": "2025-12-04T06:40:00.970Z"
+  },
+  "2a377a75-8557-45d4-87c6-bf70569831fb": {
+    "jobId": "2a377a75-8557-45d4-87c6-bf70569831fb",
+    "inputPath": "/Users/junoarciaga/Desktop/bas/sdev334/centroid-finder/server/public/videos/salamander.mp4",
+    "outputCsv": "public/results/2a377a75-8557-45d4-87c6-bf70569831fb.csv",
+    "status": "submitted",
+    "progress": 0,
+    "created": "2025-12-04T06:40:01.289Z"
+  },
+  "84e4fbd2-23be-4c7c-9bde-3d66bae17e35": {
+    "jobId": "84e4fbd2-23be-4c7c-9bde-3d66bae17e35",
+    "inputPath": "/Users/junoarciaga/Desktop/bas/sdev334/centroid-finder/server/public/videos/salamander.mp4",
+    "outputCsv": "public/results/84e4fbd2-23be-4c7c-9bde-3d66bae17e35.csv",
+    "status": "submitted",
+    "progress": 0,
+    "created": "2025-12-04T06:41:01.552Z"
+  },
+  "f0e94c57-4431-4809-8191-6e5feeacdf04": {
+    "jobId": "f0e94c57-4431-4809-8191-6e5feeacdf04",
+    "inputPath": "/Users/junoarciaga/Desktop/bas/sdev334/centroid-finder/server/public/videos/salamander.mp4",
+    "outputCsv": "public/results/f0e94c57-4431-4809-8191-6e5feeacdf04.csv",
+    "status": "submitted",
+    "progress": 0,
+    "created": "2025-12-04T19:23:10.035Z"
+  },
+  "26fff62c-1f47-4626-83b2-1ccbf8fa7e7e": {
+    "jobId": "26fff62c-1f47-4626-83b2-1ccbf8fa7e7e",
+    "inputPath": "/Users/junoarciaga/Desktop/bas/sdev334/centroid-finder/server/public/videos/salamander.mp4",
+    "outputCsv": "public/results/26fff62c-1f47-4626-83b2-1ccbf8fa7e7e.csv",
+    "status": "submitted",
+    "progress": 0,
+    "created": "2025-12-04T19:25:30.274Z"
+  },
+  "fb5d3e31-e4b7-4a5c-860e-f8ab6c10bc4e": {
+    "jobId": "fb5d3e31-e4b7-4a5c-860e-f8ab6c10bc4e",
+    "inputPath": "/Users/junoarciaga/Desktop/bas/sdev334/centroid-finder/server/public/videos/salamander.mp4",
+    "outputCsv": "public/results/fb5d3e31-e4b7-4a5c-860e-f8ab6c10bc4e.csv",
+    "status": "submitted",
+    "progress": 0,
+    "created": "2025-12-04T19:25:30.319Z"
+  },
+  "08c24c9b-d2e2-4e0a-88eb-84e4430daf08": {
+    "jobId": "08c24c9b-d2e2-4e0a-88eb-84e4430daf08",
+    "inputPath": "/Users/junoarciaga/Desktop/bas/sdev334/centroid-finder/server/public/videos/salamander.mp4",
+    "outputCsv": "public/results/08c24c9b-d2e2-4e0a-88eb-84e4430daf08.csv",
+    "status": "submitted",
+    "progress": 0,
+    "created": "2025-12-04T21:42:29.560Z"
+  },
+  "aac2d489-3aae-4a26-ab6d-fe45815da770": {
+    "jobId": "aac2d489-3aae-4a26-ab6d-fe45815da770",
+    "inputPath": "/Users/junoarciaga/Desktop/bas/sdev334/centroid-finder/server/public/videos/salamander.mp4",
+    "outputCsv": "public/results/aac2d489-3aae-4a26-ab6d-fe45815da770.csv",
+    "status": "submitted",
+    "progress": 0,
+    "created": "2025-12-04T21:43:11.289Z"
+  },
+  "fd85e557-6245-4048-b57f-0268629d4ba2": {
+    "jobId": "fd85e557-6245-4048-b57f-0268629d4ba2",
+    "inputPath": "/Users/junoarciaga/Desktop/bas/sdev334/centroid-finder/server/public/videos/salamander.mp4",
+    "outputCsv": "public/results/fd85e557-6245-4048-b57f-0268629d4ba2.csv",
+    "status": "submitted",
+    "progress": 0,
+    "created": "2025-12-04T21:53:18.658Z"
+  },
+  "4742ca96-28ed-4f62-a57d-cc0c4d830b13": {
+    "jobId": "4742ca96-28ed-4f62-a57d-cc0c4d830b13",
+    "inputPath": "/Users/junoarciaga/Desktop/bas/sdev334/centroid-finder/server/public/videos/salamander.mp4",
+    "outputCsv": "public/results/4742ca96-28ed-4f62-a57d-cc0c4d830b13.csv",
+    "status": "submitted",
+    "progress": 0,
+    "created": "2025-12-04T22:02:10.237Z"
+  },
+  "d598cdad-ae75-4ad1-9185-44815900f7b7": {
+    "jobId": "d598cdad-ae75-4ad1-9185-44815900f7b7",
+    "inputPath": "/Users/junoarciaga/Desktop/bas/sdev334/centroid-finder/server/public/videos/salamander.mp4",
+    "outputCsv": "public/results/d598cdad-ae75-4ad1-9185-44815900f7b7.csv",
+    "status": "submitted",
+    "progress": 0,
+    "created": "2025-12-04T22:12:45.537Z"
+  },
+  "f5ed969d-f6a9-450a-8417-7ce0c3fb21c7": {
+    "jobId": "f5ed969d-f6a9-450a-8417-7ce0c3fb21c7",
+    "inputPath": "/Users/junoarciaga/Desktop/bas/sdev334/centroid-finder/server/public/videos/salamander.mp4",
+    "outputCsv": "public/results/f5ed969d-f6a9-450a-8417-7ce0c3fb21c7.csv",
+    "status": "submitted",
+    "progress": 0,
+    "created": "2025-12-04T22:30:17.898Z"
+  },
+  "289b35cc-1e8d-4268-bdf5-8c2caf3065b9": {
+    "jobId": "289b35cc-1e8d-4268-bdf5-8c2caf3065b9",
+    "inputPath": "/Users/junoarciaga/Desktop/bas/sdev334/centroid-finder/server/public/videos/salamander.mp4",
+    "outputCsv": "public/results/289b35cc-1e8d-4268-bdf5-8c2caf3065b9.csv",
+    "status": "submitted",
+    "progress": 0,
+    "created": "2025-12-04T22:32:29.086Z"
   }
 }
