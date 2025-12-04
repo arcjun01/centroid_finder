@@ -38,7 +38,7 @@ function saveJobs(jobs) {
 }
 
 // Creates a new job and saves it to jobs.json
-export function createJob(jobId, inputPath, outputCsv) {
+export function createJob(jobId, inputPath, outputCsv, targetColor, threshold) {
   if (!jobId || !inputPath || !outputCsv) {
     throw new Error("Missing parameters");
   }
@@ -52,12 +52,15 @@ export function createJob(jobId, inputPath, outputCsv) {
     status: "submitted",
     progress: 0,
     created: new Date().toISOString(),
+    targetColor: targetColor || null,   // <-- add this
+    threshold: threshold !== undefined ? threshold : null, // <-- add this
   };
 
   jobs[jobId] = job;
   saveJobs(jobs);
   return job;
 }
+
 
 // Updates the status of a specific job
 export function updateJobStatus(jobId, status) {
