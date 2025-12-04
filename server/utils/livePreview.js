@@ -94,3 +94,4 @@ export async function createBinarizedPreview(imagePath, hexColor, threshold) {
     };
 
 }
+
