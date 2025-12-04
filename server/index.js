@@ -25,6 +25,22 @@ app.get("/", (req, res) => {
 app.use("/jobs", jobsRouter);
 app.use("/process", videosRouter);
 
+// CSV Download
+app.get("/process/:jobId/result", (req, res) => {
+  const jobId = req.params.jobId;
+
+  // Full path based on .env RESULTS_DIR
+  const filePath = path.resolve(process.env.RESULTS_DIR, `results_${jobId}.csv`);
+
+  res.download(filePath, `results_${jobId}.csv`, (err) => {
+    if (err) {
+      console.error("CSV download error:", err);
+      return res.status(404).json({ error: "CSV file not found" });
+    }
+  });
+});
+
+
 const PORT = process.env.PORT || 3000;
 if (process.env.NODE_ENV !== "test") {
   app.listen(PORT, () =>
