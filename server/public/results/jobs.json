@@ -84,5 +84,45 @@
     "created": "2025-12-05T02:56:19.106Z",
     "targetColor": "#4c020e",
     "threshold": 50
+  },
+  "ad9bbb34-bb7e-47f4-99f0-8039520862f1": {
+    "jobId": "ad9bbb34-bb7e-47f4-99f0-8039520862f1",
+    "inputPath": "C:\\Users\\bezat\\OneDrive\\Desktop\\SDEV334\\centroid-finder\\server\\public\\videos\\salamander.mp4",
+    "outputCsv": "C:\\Users\\bezat\\OneDrive\\Desktop\\SDEV334\\centroid-finder\\server\\server\\public\\results\\ad9bbb34-bb7e-47f4-99f0-8039520862f1.csv",
+    "status": "completed",
+    "progress": 100,
+    "created": "2025-12-05T03:16:38.376Z",
+    "targetColor": "#510a0b",
+    "threshold": 50
+  },
+  "9e9f35e3-1451-48b6-a999-d9d5fc068994": {
+    "jobId": "9e9f35e3-1451-48b6-a999-d9d5fc068994",
+    "inputPath": "C:\\Users\\bezat\\OneDrive\\Desktop\\SDEV334\\centroid-finder\\server\\public\\videos\\salamander.mp4",
+    "outputCsv": "C:\\Users\\bezat\\OneDrive\\Desktop\\SDEV334\\centroid-finder\\server\\server\\public\\results\\9e9f35e3-1451-48b6-a999-d9d5fc068994.csv",
+    "status": "completed",
+    "progress": 100,
+    "created": "2025-12-05T03:20:08.471Z",
+    "targetColor": "#5d0909",
+    "threshold": 50
+  },
+  "fd4ec35d-cb75-4d22-832b-57601a5e0d27": {
+    "jobId": "fd4ec35d-cb75-4d22-832b-57601a5e0d27",
+    "inputPath": "C:\\Users\\bezat\\OneDrive\\Desktop\\SDEV334\\centroid-finder\\server\\public\\videos\\salamander.mp4",
+    "outputCsv": "C:\\Users\\bezat\\OneDrive\\Desktop\\SDEV334\\centroid-finder\\server\\server\\public\\results\\fd4ec35d-cb75-4d22-832b-57601a5e0d27.csv",
+    "status": "completed",
+    "progress": 100,
+    "created": "2025-12-05T03:21:40.046Z",
+    "targetColor": "#500907",
+    "threshold": 50
+  },
+  "1e33ecb9-8cfc-4418-9046-a287ffd9813e": {
+    "jobId": "1e33ecb9-8cfc-4418-9046-a287ffd9813e",
+    "inputPath": "C:\\Users\\bezat\\OneDrive\\Desktop\\SDEV334\\centroid-finder\\server\\public\\videos\\salamander.mp4",
+    "outputCsv": "C:\\Users\\bezat\\OneDrive\\Desktop\\SDEV334\\centroid-finder\\server\\server\\public\\results\\1e33ecb9-8cfc-4418-9046-a287ffd9813e.csv",
+    "status": "completed",
+    "progress": 100,
+    "created": "2025-12-05T03:25:42.288Z",
+    "targetColor": "#540708",
+    "threshold": 50
   }
 }

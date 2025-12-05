@@ -4,45 +4,28 @@ import fs from "fs";
 import path from "path";
 import { updateJobProgress, updateJobStatus } from "./manageJob.js";
 
-/**
- * Validates the JAR_PATH environment variable
- * Throws a descriptive error if missing or file does not exist
- */
 function validateJarPath() {
   if (!process.env.JAR_PATH) {
     throw new Error("JAR_PATH is not set in your .env file. Please define it.");
   }
 
   const jarFullPath = path.resolve(process.cwd(), process.env.JAR_PATH);
-
   if (!fs.existsSync(jarFullPath)) {
     throw new Error(`JAR_PATH does not exist at path: ${jarFullPath}`);
   }
-
   return jarFullPath;
 }
 
-/**
- * Runs the Java processor and tracks progress
- * @param {string} inputPath - Path to input video
- * @param {string} outputCsv - Path to output CSV
- * @param {string} targetColor - Color to track
- * @param {string|number} threshold - Threshold value
- * @param {string} jobId - Job ID for progress tracking
- * @returns {number|null} pid of the spawned Java process, or null if error
- */
 export function runProcessor(inputPath, outputCsv, targetColor, threshold, jobId) {
   let jarPath;
-
   try {
     jarPath = validateJarPath();
   } catch (err) {
     console.error("[Processor Error] Cannot start processor:", err.message);
     updateJobStatus(jobId, "failed");
-    return null; // Graceful failure
+    return null;
   }
 
-  // Create output directory if needed
   const outputDir = path.dirname(outputCsv);
   if (!fs.existsSync(outputDir)) fs.mkdirSync(outputDir, { recursive: true });
 
@@ -59,13 +42,17 @@ export function runProcessor(inputPath, outputCsv, targetColor, threshold, jobId
       }
     );
 
+    // Simulate progress every 1 second
+    let simulatedProgress = 0;
+    const interval = setInterval(() => {
+      simulatedProgress += 5; // increment 5%
+      if (simulatedProgress >= 95) simulatedProgress = 95; // cap before completion
+      updateJobProgress(jobId, simulatedProgress);
+    }, 1000);
+
+    // Listen for Java stdout (optional)
     child.stdout.on("data", (data) => {
       const text = data.toString();
-      const match = text.match(/Progress: (\d+)%/);
-      if (match) {
-        const progress = parseInt(match[1], 10);
-        updateJobProgress(jobId, progress);
-      }
       console.log(`[Java stdout] ${text.trim()}`);
     });
 
@@ -74,16 +61,13 @@ export function runProcessor(inputPath, outputCsv, targetColor, threshold, jobId
     });
 
     child.on("close", (code) => {
-      console.log(`[Processor] Java process exited with code ${code}`);
-      if (code === 0) {
-        updateJobProgress(jobId, 100);
-        updateJobStatus(jobId, "completed");
+      clearInterval(interval);
+      updateJobProgress(jobId, 100);
+      updateJobStatus(jobId, code === 0 ? "completed" : "failed");
 
-        const exists = fs.existsSync(outputCsv);
-        console.log("[Processor] CSV exists after completion?", exists);
-      } else {
-        updateJobStatus(jobId, "failed");
-      }
+      const exists = fs.existsSync(outputCsv);
+      console.log(`[Processor] Java process exited with code ${code}`);
+      console.log("[Processor] CSV exists after completion?", exists);
     });
 
     console.log(`[Processor] Started Java process (PID: ${child.pid})`);

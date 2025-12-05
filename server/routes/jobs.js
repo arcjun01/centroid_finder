@@ -1,29 +1,21 @@
+// server/routes/jobs.js
 import express from "express";
-import { getJobs, getJob } from "../utils/manageJob.js";
+import { getJob } from "../utils/manageJob.js"; // reads jobs.json
 
 const router = express.Router();
 
-// Return all jobs
-router.get("/", (req, res) => {
-  res.json(getJobs());
-});
-
-// Return specific job by ID
-router.get("/:jobId", async (req, res) => {
+// GET job status + progress
+router.get("/:jobId", async(req, res) => {
   const jobId = req.params.jobId;
-  const jobs = getJobs();
+  const job =await getJob(jobId);
 
-  // Check if job exists before calling getJob
-  if (!jobs[jobId]) {
-    return res.status(404).json({ error: "Job not found" });
-  }
+  if (!job) return res.status(404).json({ error: "Job not found" });
 
-  try {
-    const job = await getJob(jobId);
-    res.json(job);
-  } catch (err) {
-    return res.status(500).json({ error: "Internal server error" });
-  }
+  return res.json({
+    status: job.status,
+    progress: job.progress,
+    resultCsv: job.outputCsv ? `/process/result/${jobId}` : null
+  });
 });
 
 export default router;

@@ -78,5 +78,25 @@
     "created": "2025-12-05T02:07:09.953Z",
     "targetColor": "#530b0c",
     "threshold": 50
+  },
+  "eac7d62c-adbd-4447-9201-121302d06eab": {
+    "jobId": "eac7d62c-adbd-4447-9201-121302d06eab",
+    "inputPath": "C:\\Users\\bezat\\OneDrive\\Desktop\\SDEV334\\centroid-finder\\server\\public\\videos\\salamander.mp4",
+    "outputCsv": "C:\\Users\\bezat\\OneDrive\\Desktop\\SDEV334\\centroid-finder\\server\\server\\public\\results\\eac7d62c-adbd-4447-9201-121302d06eab.csv",
+    "status": "completed",
+    "progress": 100,
+    "created": "2025-12-05T03:00:26.237Z",
+    "targetColor": "#510604",
+    "threshold": 50
+  },
+  "f2561114-94bd-48f3-9c4d-24d159cf42ee": {
+    "jobId": "f2561114-94bd-48f3-9c4d-24d159cf42ee",
+    "inputPath": "C:\\Users\\bezat\\OneDrive\\Desktop\\SDEV334\\centroid-finder\\server\\public\\videos\\salamander.mp4",
+    "outputCsv": "C:\\Users\\bezat\\OneDrive\\Desktop\\SDEV334\\centroid-finder\\server\\server\\public\\results\\f2561114-94bd-48f3-9c4d-24d159cf42ee.csv",
+    "status": "completed",
+    "progress": 100,
+    "created": "2025-12-05T03:11:31.311Z",
+    "targetColor": "#540a0b",
+    "threshold": 50
   }
 }
