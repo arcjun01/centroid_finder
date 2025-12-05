@@ -1,19 +1,20 @@
+// server/routes/videos.js
 import express from "express";
 import { v4 as uuidv4 } from "uuid";
 import path from "path";
 import fs from "fs";
 import multer from "multer";
 import { runProcessor } from "../utils/processor.js";
-import { createJob, updateJobStatus, updateJobProgress } from "../utils/manageJob.js";
+import { createJob } from "../utils/manageJob.js";
 import { extractFirstFrame, createBinarizedPreview } from "../utils/livePreview.js";
-
 
 const router = express.Router();
 
 const VIDEOS_DIR = path.resolve(process.env.VIDEOS_DIR);
 const THUMBNAILS_DIR = path.resolve("public/thumbnails");
+const RESULTS_DIR = path.resolve(process.env.RESULTS_DIR);
 
-// Ensure thumbnails folder exists
+// Ensure directories exist
 if (!fs.existsSync(THUMBNAILS_DIR)) fs.mkdirSync(THUMBNAILS_DIR, { recursive: true });
 
 // Multer Upload
@@ -38,7 +39,7 @@ router.post("/upload", upload.single("videoFile"), (req, res) => {
 router.get("/list", (req, res) => {
   try {
     const files = fs.readdirSync(VIDEOS_DIR);
-    const videos = files.filter(file => file.match(/\.(mp4|mov|avi|mkv)$/i));
+    const videos = files.filter((file) => file.match(/\.(mp4|mov|avi|mkv)$/i));
     return res.json(videos);
   } catch {
     return res.status(500).json({ error: "Cannot read video directory" });
@@ -71,65 +72,70 @@ router.get("/binarize-preview", async (req, res) => {
   }
 
   try {
-    const { buffer, centroid } = await createBinarizedPreview(framePath, color, Number(threshold));
+    const { buffer, centroid } = await createBinarizedPreview(
+      framePath,
+      color,
+      Number(threshold)
+    );
 
     res.set("Content-Type", "application/json");
     return res.send({
       image: buffer.toString("base64"),
-      centroid
+      centroid,
     });
   } catch (err) {
     return res.status(500).json({ error: "Preview processing failed" });
   }
 });
 
-
 // FULL PROCESSING JOB (calls Java JAR)
 router.post("/start", (req, res) => {
   const { inputPath, targetColor, threshold } = req.body;
 
-  if (!inputPath || !targetColor || threshold === undefined)
+  if (!inputPath || !targetColor || threshold === undefined) {
     return res.status(400).json({ error: "Missing fields" });
+  }
+
+  if (!isValidHex(targetColor)) {
+    return res.status(400).json({ error: "Invalid color format" });
+  }
 
   const resolvedInput = path.resolve(VIDEOS_DIR, inputPath);
 
-  if (!fs.existsSync(resolvedInput))
+  if (!fs.existsSync(resolvedInput)) {
     return res.status(404).json({ error: "File not found" });
+  }
 
   const jobId = uuidv4();
-  const outputCsv = `${process.env.RESULTS_DIR}/${jobId}.csv`;
+  const outputCsv = path.resolve(RESULTS_DIR, `${jobId}.csv`);
 
+  console.log(`[Videos] New job ${jobId}`);
+  console.log(`[Videos] Input: ${resolvedInput}`);
+  console.log(`[Videos] Output CSV: ${outputCsv}`);
+
+  // Track job in jobs.json
   createJob(jobId, resolvedInput, outputCsv, targetColor, threshold);
 
-  // SIMULATE PROGRESS
-  let progress = 0;
-  updateJobStatus(jobId, "processing");
+  // Start Java processor
+  const pid = runProcessor(resolvedInput, outputCsv, targetColor, threshold, jobId);
 
-  const interval = setInterval(() => {
-    progress += 10;
-    if (progress > 100) {
-      updateJobProgress(jobId, 100);
-      updateJobStatus(jobId, "completed");
-      clearInterval(interval);
-    } else {
-      updateJobProgress(jobId, progress);
-    }
-  }, 1000);
+  if (pid === null) {
+    return res.status(500).json({ error: "Failed to start processor" });
+  }
 
-  res.status(202).json({ jobId });
+  // Client will poll /jobs/:jobId for status + progress
+  return res.status(202).json({ jobId });
 });
 
-
-// Serve CSV result for a video
 router.get("/result/:jobId", (req, res) => {
   const jobId = req.params.jobId;
-  const csvPath = path.join(process.cwd(), "public", "results", `${jobId}.csv`);
+  const csvPath = path.resolve(RESULTS_DIR, `${jobId}.csv`);
 
   if (!fs.existsSync(csvPath)) {
     return res.status(404).json({ error: "CSV not found" });
   }
 
-  res.sendFile(csvPath);
+  return res.sendFile(csvPath);
 });
 
 export default router;

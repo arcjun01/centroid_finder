@@ -1,3 +1,4 @@
+// server/utils/processor.js
 import { spawn } from "child_process";
 import fs from "fs";
 import path from "path";
@@ -45,6 +46,8 @@ export function runProcessor(inputPath, outputCsv, targetColor, threshold, jobId
   const outputDir = path.dirname(outputCsv);
   if (!fs.existsSync(outputDir)) fs.mkdirSync(outputDir, { recursive: true });
 
+  console.log(`[Processor] Will write CSV to: ${outputCsv}`);
+
   try {
     updateJobStatus(jobId, "processing");
 
@@ -52,7 +55,7 @@ export function runProcessor(inputPath, outputCsv, targetColor, threshold, jobId
       "java",
       ["-jar", jarPath, inputPath, outputCsv, targetColor, threshold],
       {
-        stdio: ["ignore", "pipe", "pipe"]
+        stdio: ["ignore", "pipe", "pipe"],
       }
     );
 
@@ -63,6 +66,7 @@ export function runProcessor(inputPath, outputCsv, targetColor, threshold, jobId
         const progress = parseInt(match[1], 10);
         updateJobProgress(jobId, progress);
       }
+      console.log(`[Java stdout] ${text.trim()}`);
     });
 
     child.stderr.on("data", (data) => {
@@ -70,9 +74,13 @@ export function runProcessor(inputPath, outputCsv, targetColor, threshold, jobId
     });
 
     child.on("close", (code) => {
+      console.log(`[Processor] Java process exited with code ${code}`);
       if (code === 0) {
         updateJobProgress(jobId, 100);
         updateJobStatus(jobId, "completed");
+
+        const exists = fs.existsSync(outputCsv);
+        console.log("[Processor] CSV exists after completion?", exists);
       } else {
         updateJobStatus(jobId, "failed");
       }
