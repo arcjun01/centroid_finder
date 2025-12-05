@@ -1,6 +1,7 @@
 import { spawn } from "child_process";
 import fs from "fs";
 import path from "path";
+import { updateJobProgress, updateJobStatus } from "./manageJob.js";
 
 /**
  * Validates the JAR_PATH environment variable
@@ -21,20 +22,22 @@ function validateJarPath() {
 }
 
 /**
- * Runs the Java processor
+ * Runs the Java processor and tracks progress
  * @param {string} inputPath - Path to input video
  * @param {string} outputCsv - Path to output CSV
  * @param {string} targetColor - Color to track
- * @param {string} threshold - Threshold value
+ * @param {string|number} threshold - Threshold value
+ * @param {string} jobId - Job ID for progress tracking
  * @returns {number|null} pid of the spawned Java process, or null if error
  */
-export function runProcessor(inputPath, outputCsv, targetColor, threshold) {
+export function runProcessor(inputPath, outputCsv, targetColor, threshold, jobId) {
   let jarPath;
 
   try {
     jarPath = validateJarPath();
   } catch (err) {
     console.error("[Processor Error] Cannot start processor:", err.message);
+    updateJobStatus(jobId, "failed");
     return null; // Graceful failure
   }
 
@@ -43,43 +46,43 @@ export function runProcessor(inputPath, outputCsv, targetColor, threshold) {
   if (!fs.existsSync(outputDir)) fs.mkdirSync(outputDir, { recursive: true });
 
   try {
-    // Spawn Java process
+    updateJobStatus(jobId, "processing");
+
     const child = spawn(
       "java",
       ["-jar", jarPath, inputPath, outputCsv, targetColor, threshold],
       {
-        detached: true,
-        stdio: "ignore", // suppress output
+        stdio: ["ignore", "pipe", "pipe"]
       }
     );
 
-    child.unref(); // Allow Node to exit without killing the process
+    child.stdout.on("data", (data) => {
+      const text = data.toString();
+      const match = text.match(/Progress: (\d+)%/);
+      if (match) {
+        const progress = parseInt(match[1], 10);
+        updateJobProgress(jobId, progress);
+      }
+    });
+
+    child.stderr.on("data", (data) => {
+      console.error(`[Java Error] ${data.toString()}`);
+    });
+
+    child.on("close", (code) => {
+      if (code === 0) {
+        updateJobProgress(jobId, 100);
+        updateJobStatus(jobId, "completed");
+      } else {
+        updateJobStatus(jobId, "failed");
+      }
+    });
+
     console.log(`[Processor] Started Java process (PID: ${child.pid})`);
     return child.pid;
   } catch (err) {
     console.error("[Processor Error] Failed to spawn Java process:", err.message);
+    updateJobStatus(jobId, "failed");
     return null;
   }
-}
-
-/**
- * One-off test function to validate all three scenarios:
- * 1. Missing JAR_PATH
- * 2. Invalid JAR_PATH
- * 3. Valid JAR_PATH (prints PID)
- */
-export function testProcessorScenarios() {
-  console.log("\n--- Test 1: Missing JAR_PATH ---");
-  const originalJarPath = process.env.JAR_PATH;
-  delete process.env.JAR_PATH;
-  runProcessor("./sample/video.mp4", "./results/output.csv", "red", "50");
-
-  console.log("\n--- Test 2: Invalid JAR_PATH ---");
-  process.env.JAR_PATH = "./fake/path/doesnotexist.jar";
-  runProcessor("./sample/video.mp4", "./results/output.csv", "red", "50");
-
-  console.log("\n--- Test 3: Valid JAR_PATH ---");
-  // Replace with the real path to your JAR
-  process.env.JAR_PATH = originalJarPath || "../processor/target/centroid-finder-1.0-SNAPSHOT-jar-with-dependencies.jar";
-  runProcessor("./sample/video.mp4", "./results/output.csv", "red", "50");
 }

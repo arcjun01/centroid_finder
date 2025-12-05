@@ -4,8 +4,9 @@ import path from "path";
 import fs from "fs";
 import multer from "multer";
 import { runProcessor } from "../utils/processor.js";
-import { createJob } from "../utils/manageJob.js";
+import { createJob, updateJobStatus, updateJobProgress } from "../utils/manageJob.js";
 import { extractFirstFrame, createBinarizedPreview } from "../utils/livePreview.js";
+
 
 const router = express.Router();
 
@@ -99,9 +100,36 @@ router.post("/start", (req, res) => {
   const outputCsv = `${process.env.RESULTS_DIR}/${jobId}.csv`;
 
   createJob(jobId, resolvedInput, outputCsv, targetColor, threshold);
-  runProcessor(resolvedInput, outputCsv, targetColor, threshold);
 
-  return res.status(202).json({ jobId });
+  // SIMULATE PROGRESS
+  let progress = 0;
+  updateJobStatus(jobId, "processing");
+
+  const interval = setInterval(() => {
+    progress += 10;
+    if (progress > 100) {
+      updateJobProgress(jobId, 100);
+      updateJobStatus(jobId, "completed");
+      clearInterval(interval);
+    } else {
+      updateJobProgress(jobId, progress);
+    }
+  }, 1000);
+
+  res.status(202).json({ jobId });
+});
+
+
+// Serve CSV result for a video
+router.get("/result/:jobId", (req, res) => {
+  const jobId = req.params.jobId;
+  const csvPath = path.join(process.cwd(), "public", "results", `${jobId}.csv`);
+
+  if (!fs.existsSync(csvPath)) {
+    return res.status(404).json({ error: "CSV not found" });
+  }
+
+  res.sendFile(csvPath);
 });
 
 export default router;

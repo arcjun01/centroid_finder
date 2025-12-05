@@ -1,0 +1,12 @@
+{
+  "e3c4cb60-47a8-497c-93ff-beec72b21ed2": {
+    "jobId": "e3c4cb60-47a8-497c-93ff-beec72b21ed2",
+    "inputPath": "C:\\Users\\bezat\\OneDrive\\Desktop\\SDEV334\\centroid-finder\\server\\public\\videos\\salamander.mp4",
+    "outputCsv": "./public/results/e3c4cb60-47a8-497c-93ff-beec72b21ed2.csv",
+    "status": "submitted",
+    "progress": 0,
+    "created": "2025-12-05T01:07:47.027Z",
+    "targetColor": "#4d0707",
+    "threshold": 50
+  }
+}

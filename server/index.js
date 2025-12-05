@@ -1,15 +1,15 @@
-import 'dotenv/config';
+import fs from "fs";  // <--- add this
+import path from "path";
 import express from "express";
+import dotenv from "dotenv";
 import jobsRouter from "./routes/jobs.js";
 import videosRouter from "./routes/videos.js";
 import cors from "cors";
-import path from "path";
+
+dotenv.config();
 
 const app = express();
-app.use(cors({
-  origin: "http://localhost:5173"
-}));
-
+app.use(cors({ origin: "http://localhost:5173" }));
 app.use(express.json());
 
 // Static hosting
@@ -17,9 +17,8 @@ app.use("/videos", express.static(process.env.VIDEOS_DIR));
 app.use("/thumbnails", express.static(process.env.THUMBNAILS_DIR));
 app.use("/results", express.static(process.env.RESULTS_DIR));
 
-
 app.get("/", (req, res) => {
-    res.send("Welcome to the Salamander API");
+  res.send("Welcome to the Salamander API");
 });
 
 app.use("/jobs", jobsRouter);
@@ -28,18 +27,14 @@ app.use("/process", videosRouter);
 // CSV Download
 app.get("/process/:jobId/result", (req, res) => {
   const jobId = req.params.jobId;
+  const filePath = path.resolve(process.env.RESULTS_DIR, `${jobId}.csv`);
 
-  // Full path based on .env RESULTS_DIR
-  const filePath = path.resolve(process.env.RESULTS_DIR, `results_${jobId}.csv`);
+  if (!fs.existsSync(filePath)) {
+    return res.status(404).json({ error: "CSV file not found" });
+  }
 
-  res.download(filePath, `results_${jobId}.csv`, (err) => {
-    if (err) {
-      console.error("CSV download error:", err);
-      return res.status(404).json({ error: "CSV file not found" });
-    }
-  });
+  res.download(filePath, `${jobId}.csv`);
 });
-
 
 const PORT = process.env.PORT || 3000;
 if (process.env.NODE_ENV !== "test") {

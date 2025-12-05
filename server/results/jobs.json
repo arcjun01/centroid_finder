@@ -1,225 +1,82 @@
 {
-  "test-id-1": {
-    "jobId": "test-id-1",
-    "inputPath": "salamander_clip.mp4",
-    "outputCsv": "path/to/output.csv",
+  "bf60e851-dfe9-458a-9f60-7827a5de9240": {
+    "jobId": "bf60e851-dfe9-458a-9f60-7827a5de9240",
+    "inputPath": "C:\\Users\\bezat\\OneDrive\\Desktop\\SDEV334\\centroid-finder\\server\\public\\videos\\salamander.mp4",
+    "outputCsv": "public/results/bf60e851-dfe9-458a-9f60-7827a5de9240.csv",
     "status": "submitted",
     "progress": 0,
-    "created": "2025-11-22T05:16:41.138Z"
+    "created": "2025-12-05T01:16:44.414Z",
+    "targetColor": "#4f0908",
+    "threshold": 50
   },
-  "bba46feb-4483-4ed7-83f7-86d4c6e0ed9d": {
-    "jobId": "bba46feb-4483-4ed7-83f7-86d4c6e0ed9d",
-    "inputPath": "dummy_video.mp4",
-    "outputCsv": "../processor/sampleOutput/bba46feb-4483-4ed7-83f7-86d4c6e0ed9d.csv",
-    "status": "submitted",
-    "created": "2025-11-22T02:57:58.791Z"
+  "7a722900-a244-4d2b-bdf3-b9af4056b1d1": {
+    "jobId": "7a722900-a244-4d2b-bdf3-b9af4056b1d1",
+    "inputPath": "C:\\Users\\bezat\\OneDrive\\Desktop\\SDEV334\\centroid-finder\\server\\public\\videos\\salamander.mp4",
+    "outputCsv": "public/results/7a722900-a244-4d2b-bdf3-b9af4056b1d1.csv",
+    "status": "processing",
+    "progress": 0,
+    "created": "2025-12-05T01:39:44.361Z",
+    "targetColor": "#520908",
+    "threshold": 50
   },
-  "b9b6d116-f420-4dbd-970c-7445262c941e": {
-    "jobId": "b9b6d116-f420-4dbd-970c-7445262c941e",
-    "inputPath": "dummy_video.mp4",
-    "outputCsv": "../processor/sampleOutput/b9b6d116-f420-4dbd-970c-7445262c941e.csv",
-    "status": "submitted",
-    "created": "2025-11-22T03:05:13.130Z"
-  },
-  "4664624c-2aa8-4a7a-bc5c-cd1a62ec11d9": {
-    "jobId": "4664624c-2aa8-4a7a-bc5c-cd1a62ec11d9",
-    "inputPath": "dummy_video.mp4",
-    "outputCsv": "../processor/sampleOutput/4664624c-2aa8-4a7a-bc5c-cd1a62ec11d9.csv",
-    "status": "submitted",
-    "created": "2025-11-22T03:07:54.222Z"
-  },
-  "29c41bc5-70fb-4fc4-9905-c26d310d2e89": {
-    "jobId": "29c41bc5-70fb-4fc4-9905-c26d310d2e89",
-    "inputPath": "dummy_video.mp4",
-    "outputCsv": "../processor/sampleOutput/29c41bc5-70fb-4fc4-9905-c26d310d2e89.csv",
-    "status": "submitted",
-    "created": "2025-11-22T04:42:11.643Z"
-  },
-  "4c680ec3-47af-4eb5-adfe-af7bc0a44fd2": {
-    "jobId": "4c680ec3-47af-4eb5-adfe-af7bc0a44fd2",
-    "inputPath": "dummy_video.mp4",
-    "outputCsv": "../processor/sampleOutput/4c680ec3-47af-4eb5-adfe-af7bc0a44fd2.csv",
-    "status": "submitted",
-    "created": "2025-11-22T04:51:15.773Z"
-  },
-  "17012e24-63f4-41e1-9784-5f07532a6948": {
-    "jobId": "17012e24-63f4-41e1-9784-5f07532a6948",
-    "inputPath": "dummy_video.mp4",
-    "outputCsv": "../processor/sampleOutput/17012e24-63f4-41e1-9784-5f07532a6948.csv",
-    "status": "submitted",
-    "created": "2025-11-22T04:58:41.782Z"
-  },
-  "719d355e-9778-4ecd-b2cb-e5bf5d2b7c24": {
-    "jobId": "719d355e-9778-4ecd-b2cb-e5bf5d2b7c24",
-    "inputPath": "dummy_video.mp4",
-    "outputCsv": "../processor/sampleOutput/719d355e-9778-4ecd-b2cb-e5bf5d2b7c24.csv",
-    "status": "submitted",
-    "created": "2025-11-22T05:02:02.532Z"
-  },
-  "1e91e498-c3cf-4824-b3f7-1d222c68e245": {
-    "jobId": "1e91e498-c3cf-4824-b3f7-1d222c68e245",
-    "inputPath": "dummy_video.mp4",
-    "outputCsv": "..\\processor\\sampleOutput\\1e91e498-c3cf-4824-b3f7-1d222c68e245.csv",
-    "status": "submitted",
-    "created": "2025-11-22T05:03:26.866Z"
-  },
-  "13d37343-c807-4b2a-b660-f587b5d6f87b": {
-    "jobId": "13d37343-c807-4b2a-b660-f587b5d6f87b",
-    "inputPath": "dummy_video.mp4",
-    "outputCsv": "..\\processor\\sampleOutput\\13d37343-c807-4b2a-b660-f587b5d6f87b.csv",
-    "status": "submitted",
-    "created": "2025-11-22T05:05:10.302Z"
-  },
-  "2592dc4a-331e-46f6-bd9d-b394b6781bca": {
-    "jobId": "2592dc4a-331e-46f6-bd9d-b394b6781bca",
-    "inputPath": "dummy_video.mp4",
-    "outputCsv": "..\\processor\\sampleOutput\\2592dc4a-331e-46f6-bd9d-b394b6781bca.csv",
+  "e60dc1c8-aa2f-48ad-a847-ff906314f09a": {
+    "jobId": "e60dc1c8-aa2f-48ad-a847-ff906314f09a",
+    "inputPath": "C:\\Users\\bezat\\OneDrive\\Desktop\\SDEV334\\centroid-finder\\server\\public\\videos\\salamander.mp4",
+    "outputCsv": "public/results/e60dc1c8-aa2f-48ad-a847-ff906314f09a.csv",
     "status": "submitted",
     "progress": 0,
-    "created": "2025-11-22T05:08:03.648Z"
+    "created": "2025-12-05T01:44:33.311Z",
+    "targetColor": "#580504",
+    "threshold": 50
   },
-  "cf4d33be-456c-4b5b-bc1c-83dd34b09aa9": {
-    "jobId": "cf4d33be-456c-4b5b-bc1c-83dd34b09aa9",
-    "inputPath": "dummy_video.mp4",
-    "outputCsv": "..\\processor\\sampleOutput\\cf4d33be-456c-4b5b-bc1c-83dd34b09aa9.csv",
-    "status": "submitted",
+  "7b425177-a1e5-4935-84e6-bf66236f5e30": {
+    "jobId": "7b425177-a1e5-4935-84e6-bf66236f5e30",
+    "inputPath": "C:\\Users\\bezat\\OneDrive\\Desktop\\SDEV334\\centroid-finder\\server\\public\\videos\\salamander.mp4",
+    "outputCsv": "public/results/7b425177-a1e5-4935-84e6-bf66236f5e30.csv",
+    "status": "processing",
     "progress": 0,
-    "created": "2025-11-22T05:10:33.104Z"
+    "created": "2025-12-05T01:46:56.483Z",
+    "targetColor": "#52090a",
+    "threshold": 50
   },
-  "1a9e62d6-1c48-48d7-82b6-5a9197521321": {
-    "jobId": "1a9e62d6-1c48-48d7-82b6-5a9197521321",
-    "inputPath": "dummy_video.mp4",
-    "outputCsv": "..\\processor\\sampleOutput\\1a9e62d6-1c48-48d7-82b6-5a9197521321.csv",
-    "status": "submitted",
+  "20db3651-45f5-4dd3-9e27-cafe8eae1eb0": {
+    "jobId": "20db3651-45f5-4dd3-9e27-cafe8eae1eb0",
+    "inputPath": "C:\\Users\\bezat\\OneDrive\\Desktop\\SDEV334\\centroid-finder\\server\\public\\videos\\salamander.mp4",
+    "outputCsv": "public/results/20db3651-45f5-4dd3-9e27-cafe8eae1eb0.csv",
+    "status": "processing",
     "progress": 0,
-    "created": "2025-11-22T05:16:41.522Z"
+    "created": "2025-12-05T01:56:27.824Z",
+    "targetColor": "#530604",
+    "threshold": 50
   },
-  "64a8a6bb-c7d3-49fc-829a-949b564aa0cf": {
-    "jobId": "64a8a6bb-c7d3-49fc-829a-949b564aa0cf",
-    "inputPath": "/Users/junoarciaga/Desktop/bas/sdev334/centroid-finder/server/public/videos/salamander.mp4",
-    "outputCsv": "public/results/64a8a6bb-c7d3-49fc-829a-949b564aa0cf.csv",
-    "status": "submitted",
+  "0e425c77-e961-401d-97ec-6204871775cf": {
+    "jobId": "0e425c77-e961-401d-97ec-6204871775cf",
+    "inputPath": "C:\\Users\\bezat\\OneDrive\\Desktop\\SDEV334\\centroid-finder\\server\\public\\videos\\salamander.mp4",
+    "outputCsv": "public/results/0e425c77-e961-401d-97ec-6204871775cf.csv",
+    "status": "processing",
     "progress": 0,
-    "created": "2025-12-04T06:40:00.163Z"
+    "created": "2025-12-05T01:58:40.347Z",
+    "targetColor": "#d1313e",
+    "threshold": 50
   },
-  "b6fcd1dd-cd74-4034-875b-c8e72a37b6a3": {
-    "jobId": "b6fcd1dd-cd74-4034-875b-c8e72a37b6a3",
-    "inputPath": "/Users/junoarciaga/Desktop/bas/sdev334/centroid-finder/server/public/videos/salamander.mp4",
-    "outputCsv": "public/results/b6fcd1dd-cd74-4034-875b-c8e72a37b6a3.csv",
-    "status": "submitted",
-    "progress": 0,
-    "created": "2025-12-04T06:40:00.191Z"
+  "57969995-1778-49d8-bfe4-c0637afc3ab3": {
+    "jobId": "57969995-1778-49d8-bfe4-c0637afc3ab3",
+    "inputPath": "C:\\Users\\bezat\\OneDrive\\Desktop\\SDEV334\\centroid-finder\\server\\public\\videos\\salamander.mp4",
+    "outputCsv": "public/results/57969995-1778-49d8-bfe4-c0637afc3ab3.csv",
+    "status": "completed",
+    "progress": 100,
+    "created": "2025-12-05T02:05:40.568Z",
+    "targetColor": "#620a0b",
+    "threshold": 50
   },
-  "70d6e71b-ded6-4f4b-9ab2-4350a72da214": {
-    "jobId": "70d6e71b-ded6-4f4b-9ab2-4350a72da214",
-    "inputPath": "/Users/junoarciaga/Desktop/bas/sdev334/centroid-finder/server/public/videos/salamander.mp4",
-    "outputCsv": "public/results/70d6e71b-ded6-4f4b-9ab2-4350a72da214.csv",
-    "status": "submitted",
-    "progress": 0,
-    "created": "2025-12-04T06:40:00.412Z"
-  },
-  "4c42ae05-bccf-41aa-a4b4-6a85c624bbf1": {
-    "jobId": "4c42ae05-bccf-41aa-a4b4-6a85c624bbf1",
-    "inputPath": "/Users/junoarciaga/Desktop/bas/sdev334/centroid-finder/server/public/videos/salamander.mp4",
-    "outputCsv": "public/results/4c42ae05-bccf-41aa-a4b4-6a85c624bbf1.csv",
-    "status": "submitted",
-    "progress": 0,
-    "created": "2025-12-04T06:40:00.970Z"
-  },
-  "2a377a75-8557-45d4-87c6-bf70569831fb": {
-    "jobId": "2a377a75-8557-45d4-87c6-bf70569831fb",
-    "inputPath": "/Users/junoarciaga/Desktop/bas/sdev334/centroid-finder/server/public/videos/salamander.mp4",
-    "outputCsv": "public/results/2a377a75-8557-45d4-87c6-bf70569831fb.csv",
-    "status": "submitted",
-    "progress": 0,
-    "created": "2025-12-04T06:40:01.289Z"
-  },
-  "84e4fbd2-23be-4c7c-9bde-3d66bae17e35": {
-    "jobId": "84e4fbd2-23be-4c7c-9bde-3d66bae17e35",
-    "inputPath": "/Users/junoarciaga/Desktop/bas/sdev334/centroid-finder/server/public/videos/salamander.mp4",
-    "outputCsv": "public/results/84e4fbd2-23be-4c7c-9bde-3d66bae17e35.csv",
-    "status": "submitted",
-    "progress": 0,
-    "created": "2025-12-04T06:41:01.552Z"
-  },
-  "f0e94c57-4431-4809-8191-6e5feeacdf04": {
-    "jobId": "f0e94c57-4431-4809-8191-6e5feeacdf04",
-    "inputPath": "/Users/junoarciaga/Desktop/bas/sdev334/centroid-finder/server/public/videos/salamander.mp4",
-    "outputCsv": "public/results/f0e94c57-4431-4809-8191-6e5feeacdf04.csv",
-    "status": "submitted",
-    "progress": 0,
-    "created": "2025-12-04T19:23:10.035Z"
-  },
-  "26fff62c-1f47-4626-83b2-1ccbf8fa7e7e": {
-    "jobId": "26fff62c-1f47-4626-83b2-1ccbf8fa7e7e",
-    "inputPath": "/Users/junoarciaga/Desktop/bas/sdev334/centroid-finder/server/public/videos/salamander.mp4",
-    "outputCsv": "public/results/26fff62c-1f47-4626-83b2-1ccbf8fa7e7e.csv",
-    "status": "submitted",
-    "progress": 0,
-    "created": "2025-12-04T19:25:30.274Z"
-  },
-  "fb5d3e31-e4b7-4a5c-860e-f8ab6c10bc4e": {
-    "jobId": "fb5d3e31-e4b7-4a5c-860e-f8ab6c10bc4e",
-    "inputPath": "/Users/junoarciaga/Desktop/bas/sdev334/centroid-finder/server/public/videos/salamander.mp4",
-    "outputCsv": "public/results/fb5d3e31-e4b7-4a5c-860e-f8ab6c10bc4e.csv",
-    "status": "submitted",
-    "progress": 0,
-    "created": "2025-12-04T19:25:30.319Z"
-  },
-  "08c24c9b-d2e2-4e0a-88eb-84e4430daf08": {
-    "jobId": "08c24c9b-d2e2-4e0a-88eb-84e4430daf08",
-    "inputPath": "/Users/junoarciaga/Desktop/bas/sdev334/centroid-finder/server/public/videos/salamander.mp4",
-    "outputCsv": "public/results/08c24c9b-d2e2-4e0a-88eb-84e4430daf08.csv",
-    "status": "submitted",
-    "progress": 0,
-    "created": "2025-12-04T21:42:29.560Z"
-  },
-  "aac2d489-3aae-4a26-ab6d-fe45815da770": {
-    "jobId": "aac2d489-3aae-4a26-ab6d-fe45815da770",
-    "inputPath": "/Users/junoarciaga/Desktop/bas/sdev334/centroid-finder/server/public/videos/salamander.mp4",
-    "outputCsv": "public/results/aac2d489-3aae-4a26-ab6d-fe45815da770.csv",
-    "status": "submitted",
-    "progress": 0,
-    "created": "2025-12-04T21:43:11.289Z"
-  },
-  "fd85e557-6245-4048-b57f-0268629d4ba2": {
-    "jobId": "fd85e557-6245-4048-b57f-0268629d4ba2",
-    "inputPath": "/Users/junoarciaga/Desktop/bas/sdev334/centroid-finder/server/public/videos/salamander.mp4",
-    "outputCsv": "public/results/fd85e557-6245-4048-b57f-0268629d4ba2.csv",
-    "status": "submitted",
-    "progress": 0,
-    "created": "2025-12-04T21:53:18.658Z"
-  },
-  "4742ca96-28ed-4f62-a57d-cc0c4d830b13": {
-    "jobId": "4742ca96-28ed-4f62-a57d-cc0c4d830b13",
-    "inputPath": "/Users/junoarciaga/Desktop/bas/sdev334/centroid-finder/server/public/videos/salamander.mp4",
-    "outputCsv": "public/results/4742ca96-28ed-4f62-a57d-cc0c4d830b13.csv",
-    "status": "submitted",
-    "progress": 0,
-    "created": "2025-12-04T22:02:10.237Z"
-  },
-  "d598cdad-ae75-4ad1-9185-44815900f7b7": {
-    "jobId": "d598cdad-ae75-4ad1-9185-44815900f7b7",
-    "inputPath": "/Users/junoarciaga/Desktop/bas/sdev334/centroid-finder/server/public/videos/salamander.mp4",
-    "outputCsv": "public/results/d598cdad-ae75-4ad1-9185-44815900f7b7.csv",
-    "status": "submitted",
-    "progress": 0,
-    "created": "2025-12-04T22:12:45.537Z"
-  },
-  "f5ed969d-f6a9-450a-8417-7ce0c3fb21c7": {
-    "jobId": "f5ed969d-f6a9-450a-8417-7ce0c3fb21c7",
-    "inputPath": "/Users/junoarciaga/Desktop/bas/sdev334/centroid-finder/server/public/videos/salamander.mp4",
-    "outputCsv": "public/results/f5ed969d-f6a9-450a-8417-7ce0c3fb21c7.csv",
-    "status": "submitted",
-    "progress": 0,
-    "created": "2025-12-04T22:30:17.898Z"
-  },
-  "289b35cc-1e8d-4268-bdf5-8c2caf3065b9": {
-    "jobId": "289b35cc-1e8d-4268-bdf5-8c2caf3065b9",
-    "inputPath": "/Users/junoarciaga/Desktop/bas/sdev334/centroid-finder/server/public/videos/salamander.mp4",
-    "outputCsv": "public/results/289b35cc-1e8d-4268-bdf5-8c2caf3065b9.csv",
-    "status": "submitted",
-    "progress": 0,
-    "created": "2025-12-04T22:32:29.086Z"
+  "ac25d6c2-b060-483c-bab4-caf5b0d92c44": {
+    "jobId": "ac25d6c2-b060-483c-bab4-caf5b0d92c44",
+    "inputPath": "C:\\Users\\bezat\\OneDrive\\Desktop\\SDEV334\\centroid-finder\\server\\public\\videos\\salamander.mp4",
+    "outputCsv": "public/results/ac25d6c2-b060-483c-bab4-caf5b0d92c44.csv",
+    "status": "completed",
+    "progress": 100,
+    "created": "2025-12-05T02:07:09.953Z",
+    "targetColor": "#530b0c",
+    "threshold": 50
   }
 }

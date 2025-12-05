@@ -85,3 +85,21 @@ export async function getJob(jobId) {
 
   return job;
 }
+// File: server/utils/manageJob.js (add this)
+
+// ... (existing helper functions: loadJobs, saveJobs, createJob, updateJobStatus, getJobs, getJob)
+
+// Updates the progress percentage of a specific job
+export function updateJobProgress(jobId, progress) {
+  const jobs = loadJobs();
+  if (jobs[jobId]) {
+    // Ensure progress is a valid number and within bounds
+    const progressInt = Math.min(100, Math.max(0, parseInt(progress, 10))); 
+    
+    // Only update if the job is processing or submitted
+    if (jobs[jobId].status === "submitted" || jobs[jobId].status === "processing") {
+        jobs[jobId].progress = progressInt;
+        saveJobs(jobs);
+    }
+  }
+}
