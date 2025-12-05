@@ -1,4 +1,4 @@
-import fs from "fs";  // <--- add this
+import fs from "fs";
 import path from "path";
 import express from "express";
 import dotenv from "dotenv";

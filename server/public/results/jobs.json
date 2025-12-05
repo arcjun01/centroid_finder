@@ -24,5 +24,25 @@
     "created": "2025-12-04T06:33:46.444Z",
     "targetColor": "#510806",
     "threshold": 50
+  },
+  "f39655c9-c5eb-4c2b-a716-275ed7cc1468": {
+    "jobId": "f39655c9-c5eb-4c2b-a716-275ed7cc1468",
+    "inputPath": "/Users/junoarciaga/Desktop/bas/sdev334/centroid-finder/server/public/videos/salamanderShort.mp4",
+    "outputCsv": "public/results/f39655c9-c5eb-4c2b-a716-275ed7cc1468.csv",
+    "status": "completed",
+    "progress": 100,
+    "created": "2025-12-05T02:27:32.972Z",
+    "targetColor": "#560412",
+    "threshold": "166"
+  },
+  "493aaf62-a46b-4a28-a06a-321eef56d32e": {
+    "jobId": "493aaf62-a46b-4a28-a06a-321eef56d32e",
+    "inputPath": "/Users/junoarciaga/Desktop/bas/sdev334/centroid-finder/server/public/videos/salamanderShort.mp4",
+    "outputCsv": "public/results/493aaf62-a46b-4a28-a06a-321eef56d32e.csv",
+    "status": "completed",
+    "progress": 100,
+    "created": "2025-12-05T02:29:49.551Z",
+    "targetColor": "#4e030e",
+    "threshold": 50
   }
 }
