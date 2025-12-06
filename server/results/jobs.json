@@ -98,5 +98,45 @@
     "created": "2025-12-05T03:11:31.311Z",
     "targetColor": "#540a0b",
     "threshold": 50
+  },
+  "336005c0-7fa6-4e68-a797-254f8a07f833": {
+    "jobId": "336005c0-7fa6-4e68-a797-254f8a07f833",
+    "inputPath": "C:\\Users\\lizaK\\College\\sdev335\\centroid_finder\\server\\public\\videos\\salamanderShort.mp4",
+    "outputCsv": "C:\\Users\\lizaK\\College\\sdev335\\centroid_finder\\server\\public\\results\\336005c0-7fa6-4e68-a797-254f8a07f833.csv",
+    "status": "completed",
+    "progress": 100,
+    "created": "2025-12-05T03:29:39.827Z",
+    "targetColor": "#45000a",
+    "threshold": 50
+  },
+  "8acbfc4f-5d9b-4cb2-b509-31333df6462b": {
+    "jobId": "8acbfc4f-5d9b-4cb2-b509-31333df6462b",
+    "inputPath": "C:\\Users\\lizaK\\College\\sdev335\\centroid_finder\\server\\public\\videos\\salamanderShort.mp4",
+    "outputCsv": "C:\\Users\\lizaK\\College\\sdev335\\centroid_finder\\server\\public\\results\\8acbfc4f-5d9b-4cb2-b509-31333df6462b.csv",
+    "status": "completed",
+    "progress": 100,
+    "created": "2025-12-05T03:37:04.434Z",
+    "targetColor": "#674ab4",
+    "threshold": 50
+  },
+  "8698eb15-3f8c-4afa-9678-a55b11d77cbd": {
+    "jobId": "8698eb15-3f8c-4afa-9678-a55b11d77cbd",
+    "inputPath": "C:\\Users\\lizaK\\College\\sdev335\\centroid_finder\\server\\public\\videos\\salamanderShort.mp4",
+    "outputCsv": "C:\\Users\\lizaK\\College\\sdev335\\centroid_finder\\server\\public\\results\\8698eb15-3f8c-4afa-9678-a55b11d77cbd.csv",
+    "status": "completed",
+    "progress": 100,
+    "created": "2025-12-06T01:45:32.359Z",
+    "targetColor": "#47030e",
+    "threshold": 50
+  },
+  "264b5796-4c7b-4236-ac65-e4cef0e5916d": {
+    "jobId": "264b5796-4c7b-4236-ac65-e4cef0e5916d",
+    "inputPath": "C:\\Users\\lizaK\\College\\sdev335\\centroid_finder\\server\\public\\videos\\salamanderShort.mp4",
+    "outputCsv": "C:\\Users\\lizaK\\College\\sdev335\\centroid_finder\\server\\public\\results\\264b5796-4c7b-4236-ac65-e4cef0e5916d.csv",
+    "status": "completed",
+    "progress": 100,
+    "created": "2025-12-06T08:20:48.178Z",
+    "targetColor": "#46010e",
+    "threshold": "17"
   }
 }

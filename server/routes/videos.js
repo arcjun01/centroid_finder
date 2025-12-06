@@ -29,10 +29,32 @@ function isValidHex(color) {
   return /^#?[0-9A-Fa-f]{6}$/.test(color);
 }
 
-// UPLOAD VIDEO
-router.post("/upload", upload.single("videoFile"), (req, res) => {
-  if (!req.file) return res.status(400).json({ error: "No file provided" });
-  return res.status(200).json({ filename: req.file.filename });
+// // UPLOAD VIDEO
+// router.post("/upload", upload.single("videoFile"), (req, res) => {
+//   if (!req.file) {
+//     return res.status(400).json({ error: "No file uploaded" });
+//   }
+
+//   console.log(`[Videos] Uploaded: ${req.file.originalname}`);
+//   return res.status(200).json({ filename: req.file.originalname });
+// });
+
+// server/routes/videos.js
+router.post("/generate-thumbnail/:filename", async (req, res) => {
+  const filename = req.params.filename;
+  const videoPath = path.join(VIDEOS_DIR, filename);
+  const thumbPath = path.join(THUMBNAILS_DIR, `${filename}.jpg`);
+
+  try {
+    // Generate if not exists
+    if (!fs.existsSync(thumbPath)) {
+      await extractFirstFrame(videoPath, thumbPath);
+    }
+    return res.json({ thumbnailUrl: `/thumbnails/${filename}.jpg` });
+  } catch (err) {
+    console.error(err);
+    return res.status(500).json({ error: "Thumbnail generation failed" });
+  }
 });
 
 // LIST VIDEOS

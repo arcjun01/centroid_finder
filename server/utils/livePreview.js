@@ -13,7 +13,7 @@ export function extractFirstFrame(videoPath, outputPath) {
                 count: 1,
                 filename: path.basename(outputPath),
                 folder: path.dirname(outputPath),
-                size: "480x?"
+                size: "250x250"
             });
     });
 }
