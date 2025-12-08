@@ -1,4 +1,3 @@
-// server/routes/videos.js
 import express from "express";
 import { v4 as uuidv4 } from "uuid";
 import path from "path";
@@ -13,6 +12,8 @@ const router = express.Router();
 const VIDEOS_DIR = path.resolve(process.env.VIDEOS_DIR);
 const THUMBNAILS_DIR = path.resolve("public/thumbnails");
 const RESULTS_DIR = path.resolve(process.env.RESULTS_DIR);
+const PROCESSED_DIR = path.resolve("C:/Users/lizaK/College/sdev335/centroid_finder/server/public/results");
+
 
 // Ensure directories exist
 if (!fs.existsSync(THUMBNAILS_DIR)) fs.mkdirSync(THUMBNAILS_DIR, { recursive: true });
@@ -29,24 +30,27 @@ function isValidHex(color) {
   return /^#?[0-9A-Fa-f]{6}$/.test(color);
 }
 
-// // UPLOAD VIDEO
-// router.post("/upload", upload.single("videoFile"), (req, res) => {
-//   if (!req.file) {
-//     return res.status(400).json({ error: "No file uploaded" });
-//   }
+// -----------------------
+// UPLOAD VIDEO
+// -----------------------
+router.post("/upload", upload.single("videoFile"), (req, res) => {
+  if (!req.file) {
+    return res.status(400).json({ error: "No file uploaded" });
+  }
 
-//   console.log(`[Videos] Uploaded: ${req.file.originalname}`);
-//   return res.status(200).json({ filename: req.file.originalname });
-// });
+  console.log(`[Videos] Uploaded: ${req.file.originalname}`);
+  return res.status(200).json({ filename: req.file.originalname });
+});
 
-// server/routes/videos.js
+// -----------------------
+// GENERATE THUMBNAIL
+// -----------------------
 router.post("/generate-thumbnail/:filename", async (req, res) => {
   const filename = req.params.filename;
   const videoPath = path.join(VIDEOS_DIR, filename);
   const thumbPath = path.join(THUMBNAILS_DIR, `${filename}.jpg`);
 
   try {
-    // Generate if not exists
     if (!fs.existsSync(thumbPath)) {
       await extractFirstFrame(videoPath, thumbPath);
     }
@@ -57,7 +61,9 @@ router.post("/generate-thumbnail/:filename", async (req, res) => {
   }
 });
 
+// -----------------------
 // LIST VIDEOS
+// -----------------------
 router.get("/list", (req, res) => {
   try {
     const files = fs.readdirSync(VIDEOS_DIR);
@@ -68,7 +74,25 @@ router.get("/list", (req, res) => {
   }
 });
 
+// -----------------------
+// LIST PROCESSED VIDEOS
+// -----------------------
+router.get("/list-processed", (req, res) => {
+  try {
+    if (!fs.existsSync(PROCESSED_DIR)) return res.json([]);
+
+    const files = fs.readdirSync(PROCESSED_DIR);
+    const processedFiles = files.filter(f => f.match(/\.(csv|mp4)$/i));
+    return res.json(processedFiles);
+  } catch (err) {
+    console.error(err);
+    return res.status(500).json({ error: "Cannot read processed folder" });
+  }
+});
+
+// -----------------------
 // SERVE THUMBNAIL
+// -----------------------
 router.get("/thumbnail/:filename", async (req, res) => {
   const filename = req.params.filename;
   const videoPath = path.join(VIDEOS_DIR, filename);
@@ -84,7 +108,9 @@ router.get("/thumbnail/:filename", async (req, res) => {
   }
 });
 
+// -----------------------
 // LIVE BINARIZE PREVIEW
+// -----------------------
 router.get("/binarize-preview", async (req, res) => {
   const { filename, color, threshold } = req.query;
   const framePath = path.join(THUMBNAILS_DIR, `${filename}.jpg`);
@@ -110,7 +136,9 @@ router.get("/binarize-preview", async (req, res) => {
   }
 });
 
-// FULL PROCESSING JOB (calls Java JAR)
+// -----------------------
+// FULL PROCESSING JOB (Java JAR)
+// -----------------------
 router.post("/start", (req, res) => {
   const { inputPath, targetColor, threshold } = req.body;
 
@@ -135,20 +163,19 @@ router.post("/start", (req, res) => {
   console.log(`[Videos] Input: ${resolvedInput}`);
   console.log(`[Videos] Output CSV: ${outputCsv}`);
 
-  // Track job in jobs.json
   createJob(jobId, resolvedInput, outputCsv, targetColor, threshold);
-
-  // Start Java processor
   const pid = runProcessor(resolvedInput, outputCsv, targetColor, threshold, jobId);
 
   if (pid === null) {
     return res.status(500).json({ error: "Failed to start processor" });
   }
 
-  // Client will poll /jobs/:jobId for status + progress
   return res.status(202).json({ jobId });
 });
 
+// -----------------------
+// GET CSV RESULT
+// -----------------------
 router.get("/result/:jobId", (req, res) => {
   const jobId = req.params.jobId;
   const csvPath = path.resolve(RESULTS_DIR, `${jobId}.csv`);
