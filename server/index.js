@@ -33,11 +33,12 @@ app.use("/videos", express.static(videosDir));
 app.use("/thumbnails", express.static(thumbnailsDir));
 app.use("/results", express.static(resultsDir));
 
-// root rout
+// root route
 app.get("/", (req, res) => {
   res.send("Welcome to the Salamander API");
 });
 
+// routes
 app.use("/jobs", jobsRouter);
 app.use("/process", videosRouter);
 
